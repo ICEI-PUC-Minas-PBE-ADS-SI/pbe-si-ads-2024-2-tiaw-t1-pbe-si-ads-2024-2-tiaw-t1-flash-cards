@@ -1,4 +1,4 @@
-# 1. Contexto do Projeto
+# Contexto do Projeto
 
 ## Introdução
 O projeto LETHE está sendo desenvolvido com o objetivo de criar uma aplicação web de 
