@@ -17,7 +17,7 @@ Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 * # Documentação
 
 <ol>
-<li><a href="documentos/01-Documentação de Contexto.md"> Documentação de Contexto</a></li>
+<li><a href="docs/Documentação de contexto.md"> Documentação de Contexto</a></li>
 <li><a href="documentos/02-Especificação do Projeto.md"> Especificação do Projeto</a></li>
 <li><a href="documentos/03-Metodologia.md"> Metodologia</a></li>
 <li><a href="documentos/04-Projeto de Interface.md"> Projeto de Interface</a></li>
