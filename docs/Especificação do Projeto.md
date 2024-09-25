@@ -84,14 +84,8 @@ atender às principais necessidades identificadas no projeto.
       <td>O software deve permitir que o usuário configure lembretes automáticos para revisar os flashcards em horários programados.</td>
       <td>Baixa</td>
     </tr>
-  </tbody>
-<table border="1">
-  <thead>
-    <tr>
-      <th>Nome do Requisito</th>
-      <th>Requisito</th>
-      <th>Nível de Prioridade</th>
-    </tr>
+    <thead>
+    
   </thead>
   <tbody>
     <tr>
