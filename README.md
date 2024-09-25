@@ -21,7 +21,7 @@ Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 <li><a href="docs/Especificação do Projeto.md"> Especificação do Projeto</a></li>
 <li><a href="docs/Metodologia.md"> Metodologia</a></li>
 <li><a href="docs/Projeto de Interface.md"> Projeto de Interface</a></li>
-<li><a href="docs/Referências.md"> Referências</a></li>
+<li><a href="docs/referencias.md"> Referências</a></li>
 </ol>
 
 
