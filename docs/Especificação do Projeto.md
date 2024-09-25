@@ -25,6 +25,11 @@ para organizar os cartões de acordo com diferentes matérias e tópicos, facili
 revisão focada e sistemática para provas e estudos.
 
 
+# Requisitos do Projeto
+## Requisitos Funcionais
+Os requisitos funcionais abaixo foram definidos com base nas histórias de usuários e visam 
+atender às principais necessidades identificadas no projeto.
+
 <table border="1">
   <thead>
     <tr>
