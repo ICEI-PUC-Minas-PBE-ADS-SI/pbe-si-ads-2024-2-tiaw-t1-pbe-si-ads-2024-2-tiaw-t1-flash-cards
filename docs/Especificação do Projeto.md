@@ -1,4 +1,4 @@
-# 2. Especificação do Projeto
+# Especificação do Projeto
 # Histórias de usuários
 1. Como um estudante, quero criar decks personalizados de flashcards com perguntas e 
 respostas relacionadas ao meu conteúdo de estudo, para que eu possa organizar e 
