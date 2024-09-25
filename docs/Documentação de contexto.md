@@ -35,10 +35,9 @@ profissionais a se organizarem e revisarem seu conteúdo de maneira sistemática
 
 ## Público-alvo
 O público-alvo inclui:
-• Estudantes que precisam revisar grandes volumes de conteúdo para provas e 
-avaliações.
-• Profissionais que se preparam para certificações ou revisam conteúdos complexos 
-4
-em suas carreiras.
-• Autodidatas que buscam uma ferramenta eficiente para organizar e revisar o 
-conhecimento de forma contínua e autônoma.
+<ul>
+    <li>Estudantes que precisam revisar grandes volumes de conteúdo para provas e avaliações.</li>
+    <li>Profissionais que se preparam para certificações ou revisam conteúdos complexos em suas carreiras.</li>
+    <li>Autodidatas que buscam uma ferramenta eficiente para organizar e revisar o conhecimento de forma contínua e autônoma.</li>
+</ul>
+
