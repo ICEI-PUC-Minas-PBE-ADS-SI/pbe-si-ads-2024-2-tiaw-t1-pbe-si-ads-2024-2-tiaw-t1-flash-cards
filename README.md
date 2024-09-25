@@ -1,6 +1,6 @@
-# Nome do projeto
+# LETHE
 
-Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
+Trata-se de um site de flashcards que tem como principal objetivo facilitar a memorização e o aprendizado eficiente. Através da repetição espaçada, o usuário pode reter informações de forma otimizada, organizando o conteúdo e avaliando seu progresso. O formato flexível, que inclui texto e imagens, adapta-se a diferentes estilos de aprendizagem, tornando o estudo mais dinâmico e acessível.
 
 ## Alunos integrantes da equipe
 
