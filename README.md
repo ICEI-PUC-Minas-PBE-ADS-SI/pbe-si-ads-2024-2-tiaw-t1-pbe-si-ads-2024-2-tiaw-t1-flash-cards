@@ -5,7 +5,7 @@ Trata-se de um site de flashcards que tem como principal objetivo facilitar a me
 ## Alunos integrantes da equipe
 
 * Sarah Palhares Araujo
-* Gustavo Rodrgiues de Almeida
+* Gustavo Rodrigues de Almeida
 * Moisés Samuel Rezende Maia
 * Julia Larissa Camargos Costa
 * Otavio Rocha
