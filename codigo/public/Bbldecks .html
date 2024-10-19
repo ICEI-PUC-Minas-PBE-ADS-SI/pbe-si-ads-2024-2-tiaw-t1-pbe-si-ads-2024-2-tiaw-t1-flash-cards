@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/homepage.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Biblioteca de Decks</title>
+
+    <style>
+        .card {
+            background-color: #e7f1ff; /* Azul claro */
+            border: 1px solid #84c0ff; /* Azul mais escuro */
+        }
+
+        .card-title {
+            color: #007bff; /* Azul escuro para o título */
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input {
+            margin-left: 10px;
+        }
+
+        .title-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .title-container svg {
+            margin-right: 10px;
+            color: #007bff; /* Azul para a seta */
+            cursor: pointer;
+        }
+
+        h2 {
+            color: #007bff; /* Azul para o título */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler me-2" type="button" id="sidebarToggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/images/Logo lethe.png" alt="Logo" width="100">
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#" id="userDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="assets/images/profilepicture.jpg" alt="Imagem de Perfil" class="profile-picture"
+                                id="profilePicture">
+                            <span class="ms-2">Sua Conta</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Configurações</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Sair</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <button class="btn btn-warning ms-3 text-light">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg> Torne-se Pro! </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seção Biblioteca de Decks -->
+    <div class="container mt-4">
+        <div class="d-flex align-items-center mb-4 title-container">
+            <a href="index.html#sidebar" class="text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left">
+                    <path fill-rule="evenodd"
+                        d="M12.14 1.293a1 1 0 0 1 0 1.414L5.414 8l6.726 5.293a1 1 0 0 1-1.268 1.578l-7.5-6a1 1 0 0 1 0-1.578l7.5-6a1 1 0 0 1 1.268 0z" />
+                </svg>
+            </a>
+            <h2 class="ms-2">Biblioteca de Decks</h2>
+            <div class="search-container ms-auto">
+                <input type="text" class="form-control" id="searchInput" placeholder="Pesquisar seus decks" aria-label="Pesquisar">
+            </div>
+        </div>
+        <div class="row" id="deckContainer">
+            <!-- Decks de Biologia -->
+            <div class="col-md-4 mb-4 deck-item">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Células</h5>
+                        <p class="card-text">Descrição sobre células e suas funções.</p>
+                        <a href="#" class="btn btn-primary">Ver Deck</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 deck-item">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Genética</h5>
+                        <p class="card-text">Descrição sobre os princípios da genética.</p>
+                        <a href="#" class="btn btn-primary">Ver Deck</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 deck-item">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Ecologia</h5>
+                        <p class="card-text">Descrição sobre ecossistemas e interações.</p>
+                        <a href="#" class="btn btn-primary">Ver Deck</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 deck-item">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Anatomia Humana</h5>
+                        <p class="card-text">Descrição sobre os sistemas do corpo humano.</p>
+                        <a href="#" class="btn btn-primary">Ver Deck</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 deck-item">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Evolução</h5>
+                        <p class="card-text">Descrição sobre a teoria da evolução.</p>
+                        <a href="#" class="btn btn-primary">Ver Deck</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 deck-item">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Botânica</h5>
+                        <p class="card-text">Descrição sobre plantas e suas características.</p>
+                        <a href="#" class="btn btn-primary">Ver Deck</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
