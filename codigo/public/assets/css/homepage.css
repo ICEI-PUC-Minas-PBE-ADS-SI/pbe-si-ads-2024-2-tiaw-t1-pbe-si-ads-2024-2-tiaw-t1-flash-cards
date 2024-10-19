@@ -1,0 +1,85 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .content {}
+
+  .navbar {
+    background: linear-gradient(to right, #4db8ff, #1a75ff);
+  }
+
+  .upgrade-button {
+    background-color: gold;
+    border-radius: 20px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+  }
+
+  .user-icon {
+    font-size: 24px;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #b84e4e;
+    color: rgb(78, 157, 253);
+    transition: 0.3s;
+    padding: 15px;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .sidebar-close {
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  .profile-picture {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  #profileUpload {
+    display: none;
+  }
+
+  .footer {
+    background-color: #f2f2f2;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    border-top: 1px solid #ddd;
+  }
+
+  .footer a {
+    text-decoration: none;
+    color: #a2a1a1;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+
+  .footer a:hover {
+    color: #0073e6;
+  }
+
+  @media (min-width: 992px) {
+    .navbar-toggler {
+      display: block !important;
+    }
+  }
