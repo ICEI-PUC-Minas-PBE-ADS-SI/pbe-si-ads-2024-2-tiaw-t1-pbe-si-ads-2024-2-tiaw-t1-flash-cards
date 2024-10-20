@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+header nav h1 {
+    margin: 0;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+main {
+    padding: 20px;
+}
+
+.stats-container, .tables-container, .charts-container, .improvement-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.stats-container h2, .tables-container h2, .charts-container h2, .improvement-container h2 {
+    color: #007bff;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.summary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.stat-item {
+    width: 48%;
+    background-color: #e7f1ff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #84c0ff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.stat-item h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.stats-table, .improvement-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.stats-table th, .improvement-table th, 
+.stats-table td, .improvement-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.stats-table th, .improvement-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.stats-table tbody tr:nth-child(even),
+.improvement-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.stats-table tbody tr:hover, 
+.improvement-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.charts-container canvas {
+    width: 100% !important;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.improvement-container h2 {
+    color: #007bff;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.improvement-container p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #4a90e2;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+}
+
+.title-container svg {
+    margin-right: 10px;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.title-container h2 {
+    color: #007bff;
+    font-size: 24px;
+}

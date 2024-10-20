@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatísticas</title>
+    <link rel="stylesheet" href="assets/css/estatisticas.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler me-2" type="button" id="sidebarToggle">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="assets/images/Logo lethe.png" alt="Logo" width="100">
+                </a>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#" id="userDropdown"
+                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="assets/images/profilepicture.jpg" alt="Imagem de Perfil" class="profile-picture"
+                                     id="profilePicture">
+                                <span class="ms-2">Sua Conta</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                <li><a class="dropdown-item" href="#">Configurações</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Sair</a></li>
+                            </ul>
+                        </li>
+                         <!-- botão pro -->
+                        <li class="nav-item">
+                            <a href="pro.html" class="btn btn-warning ms-3 text-light">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                                Torne-se Pro!
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+        <div class="d-flex align-items-center mb-4 title-container">
+            <a href="index.html#sidebar" class="text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left">
+                    <path fill-rule="evenodd"
+                          d="M12.14 1.293a1 1 0 0 1 0 1.414L5.414 8l6.726 5.293a1 1 0 0 1-1.268 1.578l-7.5-6a1 1 0 0 1 0-1.578l7.5-6a1 1 0 0 1 1.268 0z"/>
+                </svg>
+            </a>
+            <h2 class="ms-2">Estatísticas de Desempenho</h2>
+        </div>
+
+        <section class="stats-container">
+            <h2>Resumo Geral</h2>
+            <div class="summary">
+                <div class="stat-item">
+                    <h3>Total de Flashcards Criados</h3>
+                    <p>150</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Total de Flashcards Estudados</h3>
+                    <p>130</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Taxa Média de Acertos</h3>
+                    <p>80%</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Melhor Deck</h3>
+                    <p>Matemática - 90% de acertos</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tables-container">
+            <h2>Estatísticas por Deck</h2>
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Flashcards Estudados</th>
+                        <th>Acertos</th>
+                        <th>Erros</th>
+                        <th>Taxa de Acertos (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Matemática</td>
+                        <td>50</td>
+                        <td>45</td>
+                        <td>5</td>
+                        <td>90%</td>
+                    </tr>
+                    <tr>
+                        <td>História</td>
+                        <td>40</td>
+                        <td>32</td>
+                        <td>8</td>
+                        <td>80%</td>
+                    </tr>
+                    <tr>
+                        <td>Ciências</td>
+                        <td>40</td>
+                        <td>28</td>
+                        <td>12</td>
+                        <td>70%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="charts-container">
+            <h2>Desempenho Por Deck</h2>
+            <div>
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </section>
+
+        <section class="improvement-container">
+            <h2>Sugestões de Estudo</h2>
+            <p>Com base nos dados anteriores, veja como você pode melhorar suas taxas de acertos nas categorias abaixo:</p>
+            <table class="improvement-table">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Meta de Acertos (%)</th>
+                        <th>Estratégia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Matemática</td>
+                        <td>95%</td>
+                        <td>Revisar fórmulas e conceitos difíceis semanalmente</td>
+                    </tr>
+                    <tr>
+                        <td>História</td>
+                        <td>85%</td>
+                        <td>Praticar flashcards de eventos históricos e datas importantes</td>
+                    </tr>
+                    <tr>
+                        <td>Ciências</td>
+                        <td>80%</td>
+                        <td>Estudar conceitos chave e focar em experimentos práticos</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2024 Lethe - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Gráfico de Desempenho
+    const ctx = document.getElementById('performanceChart').getContext('2d');
+    const performanceChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Matemática', 'História', 'Ciências'],
+            datasets: [{
+                label: 'Taxa de Acertos (%)',
+                data: [90, 80, 70],
+                backgroundColor: ['#4a90e2', '#f1c40f', '#e74c3c'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
