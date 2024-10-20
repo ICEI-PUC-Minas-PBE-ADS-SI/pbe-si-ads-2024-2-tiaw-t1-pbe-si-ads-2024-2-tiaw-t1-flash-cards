@@ -1,0 +1,169 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+.navbar {
+    background: linear-gradient(to right, #4db8ff, #1a75ff);
+}
+
+.upgrade-button {
+    background-color: gold;
+    border-radius: 20px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+.user-icon {
+    font-size: 24px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #b84e4e;
+    color: rgb(78, 157, 253);
+    transition: 0.3s;
+    padding: 15px;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar-close {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.profile-picture {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+   
+.sidebar a {
+    text-decoration: none; 
+    font-size: 1.5rem; 
+    color: rgb(84, 165, 241); 
+}
+
+
+.flashcard-textarea {
+    resize: none; 
+}
+
+.flashcard-container {
+    background-color: #f7f7f7; 
+    border-radius: 10px;      /* Bordas arredondadas */
+    padding: 40px;            /* Espaçamento interno */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin: 20px auto;        /* Centraliza o contêiner e adiciona margem superior e inferior */
+    max-width: 1400px;         /* Define a largura máxima do contêiner */
+    width: 60%;                /* Define a largura do contêiner como 60% da largura da tela */
+}
+
+.flashcard-label {
+    font-weight: bold;        /* Negrito para o rótulo */
+    margin-bottom: 10px;      /* Espaçamento abaixo do rótulo */
+    display: block;           /* Faz o rótulo ocupar a largura total */
+}
+
+.flashcard-textarea {
+    border: 1px solid #007bff; /* Borda azul */
+    border-radius: 5px;       /* Bordas mais arredondadas para o textarea */
+    resize: none;              /* Desabilita o redimensionamento do textarea */
+    height: 150px;             /* Define uma altura fixa para o textarea */
+    font-size: 14px;          /* Tamanho da fonte */
+    background-color: #f7f7f7; /* Cor de fundo do textarea */
+}
+
+.flashcard-textarea:focus {
+    border-color: #0056b3;    /* Cor da borda ao focar no textarea */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra ao focar */
+    outline: none;            /* Remove o contorno padrão */
+}
+
+.card-body {
+    background-color: #f7f7f7;
+    padding: 30px;
+}
+
+#fontSizeDisplay {
+    font-size: 18px;
+}
+
+textarea {
+    font-size: 14px;
+    border: none;
+    background-color: #f7f7f7;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.form-control-color {
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+}
+
+#toggleSide {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.bi-arrow-left-right {
+    font-size: 1.5rem;
+}
+
+.footer {
+    position: fixed; /* Fixa o footer na parte inferior da página */
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Ocupa toda a largura da página */
+    background-color: #f0f0f0; /* Cinza claro */
+    color: #666; /* Cinza escuro */
+    text-align: center; /* Centraliza o texto */
+    padding: 10px 0; /* Espaçamento vertical */
+    z-index: 1000; /* Para garantir que fique acima de outros conteúdos */
+}
+
+.footer-text {
+    margin: 0; /* Remove a margem padrão */
+}
+
+.footer-link {
+    color: #666; /* Cor dos links */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+.footer-link:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+
+@media (min-width: 992px) {
+    .navbar-toggler {
+        display: block !important;
+    }
+}
