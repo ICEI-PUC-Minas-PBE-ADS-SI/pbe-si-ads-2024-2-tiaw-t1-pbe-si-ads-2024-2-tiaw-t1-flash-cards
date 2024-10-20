@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatísticas</title>
+    <link rel="stylesheet" href="assets/css/estatisticas.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Estatísticas de Desempenho</h1>
+            <a href="index.html">Voltar</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="stats-container">
+            <h2>Resumo Geral</h2>
+            <div class="summary">
+                <div class="stat-item">
+                    <h3>Total de Flashcards Criados</h3>
+                    <p>150</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Total de Flashcards Estudados</h3>
+                    <p>130</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Taxa Média de Acertos</h3>
+                    <p>80%</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Melhor Categoria</h3>
+                    <p>Matemática - 90% de acertos</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tables-container">
+            <h2>Estatísticas por Categoria</h2>
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Flashcards Estudados</th>
+                        <th>Acertos</th>
+                        <th>Erros</th>
+                        <th>Taxa de Acertos (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Matemática</td>
+                        <td>50</td>
+                        <td>45</td>
+                        <td>5</td>
+                        <td>90%</td>
+                    </tr>
+                    <tr>
+                        <td>História</td>
+                        <td>40</td>
+                        <td>32</td>
+                        <td>8</td>
+                        <td>80%</td>
+                    </tr>
+                    <tr>
+                        <td>Ciências</td>
+                        <td>40</td>
+                        <td>28</td>
+                        <td>12</td>
+                        <td>70%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="charts-container">
+            <h2>Desempenho Gráfico</h2>
+            <div>
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </section>
+
+        <section class="improvement-container">
+            <h2>Melhorias de Desempenho</h2>
+            <p>Com base nos dados anteriores, veja como você pode melhorar suas taxas de acertos nas categorias abaixo:</p>
+            <table class="improvement-table">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Meta de Acertos (%)</th>
+                        <th>Estratégia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Matemática</td>
+                        <td>95%</td>
+                        <td>Revisar fórmulas e conceitos difíceis semanalmente</td>
+                    </tr>
+                    <tr>
+                        <td>História</td>
+                        <td>85%</td>
+                        <td>Praticar flashcards de eventos históricos e datas importantes</td>
+                    </tr>
+                    <tr>
+                        <td>Ciências</td>
+                        <td>80%</td>
+                        <td>Estudar conceitos chave e focar em experimentos práticos</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2024 Lethe - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Gráfico de Desempenho
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        const performanceChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Matemática', 'História', 'Ciências'],
+                datasets: [{
+                    label: 'Taxa de Acertos (%)',
+                    data: [90, 80, 70],
+                    backgroundColor: ['#4a90e2', '#f1c40f', '#e74c3c'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
