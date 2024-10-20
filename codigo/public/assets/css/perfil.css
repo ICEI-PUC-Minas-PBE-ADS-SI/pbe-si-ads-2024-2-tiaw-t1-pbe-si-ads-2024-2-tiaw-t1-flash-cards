@@ -55,7 +55,7 @@
 }
 
 .cover-photo {
-    background-image: url('banner.jpg');
+    background-image: url('assets/images/banner.jpg');
     height: 280px;
     background-size: cover;
     background-position: center;
