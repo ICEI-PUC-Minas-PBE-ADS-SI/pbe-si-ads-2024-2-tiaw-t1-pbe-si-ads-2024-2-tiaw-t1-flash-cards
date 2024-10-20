@@ -85,57 +85,74 @@
 </div>
 
   <!--conteúdo da tela-->
-  <div class="content" id="homepage">
-     <div class="container mt-5">
-        <h2>Seus Decks:</h2>
-        <div class="d-flex flex-column">
-            <div class="deck-item-wrapper mb-3 d-flex justify-content-between align-items-center">
-                <a href="#" id="filosofia-btn" class="btn p-6 w-50 text-start">Filosofia</a>
+    <div class="content" id="homepage">
+        <div class="deck-column">
+            <h3>Seus Decks:</h3>
+
+            <!-- Filosofia -->
+            <div class="deck-container">
+                <a href="#" class="deck-bar">Filosofia</a>
                 <div class="deck-numbers">
-                    <span class="text-danger me-1">18</span>
-                    <span class="text-primary me-2">20</span>
-                    <span class="text-success">15</span>
+                    <span class="red">18</span>
+                    <span class="blue">20</span>
+                    <span class="green">15</span>
                 </div>
             </div>
-            <div class="deck-item-wrapper mb-3 d-flex justify-content-between align-items-center">
-                <a href="#" id="matematica-btn" class="btn p-8 w-50 text-start">Matemática</a>
+
+            <!-- Matemática -->
+            <div class="deck-container">
+                <a href="#" class="deck-bar">Matemática</a>
                 <div class="deck-numbers">
-                    <span class="text-danger me-1">30</span>
-                    <span class="text-primary me-2">12</span>
-                    <span class="text-success">4</span>
+                    <span class="red">30</span>
+                    <span class="blue">12</span>
+                    <span class="green">4</span>
                 </div>
             </div>
-            <div class="deck-item-wrapper mb-3 d-flex justify-content-between align-items-center">
-                <a href="#" id="geografia-btn" class="btn p-6 w-50 text-start">Geografia</a>
+
+            <!-- Geografia -->
+            <div class="deck-container">
+                <a href="#" class="deck-bar">Geografia</a>
                 <div class="deck-numbers">
-                    <span class="text-danger me-1">10</span>
-                    <span class="text-primary me-2">8</span>
-                    <span class="text-success">24</span>
+                    <span class="red">10</span>
+                    <span class="blue">8</span>
+                    <span class="green">24</span>
                 </div>
             </div>
-            <div class="deck-item-wrapper mb-3 d-flex justify-content-between align-items-center">
-                <a href="#" id="ingles-btn" class="btn p-6 w-50 text-start">Inglês</a>
+
+            <!-- Inglês -->
+            <div class="deck-container">
+                <a href="#" class="deck-bar">Inglês</a>
                 <div class="deck-numbers">
-                    <span class="text-danger me-1">2</span>
-                    <span class="text-primary me-2">4</span>
-                    <span class="text-success">35</span>
+                    <span class="red">2</span>
+                    <span class="blue">4</span>
+                    <span class="green">35</span>
                 </div>
+            </div>
+            <!-- Banner Inferior -->
+            <div class="banner-bottom">
+                <img src="ml.jpg.png" alt="Banner Inferior" style="width: 100%; height: auto;">
             </div>
         </div>
-        </main>
 
+        <!-- Banner Lateral -->
+        <div class="banner-right">
+            <img src="ML.jpg" alt="Banner Lateral" style="width: 100%; height: auto;">
+        </div>
+    </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="ad-section">
-                    <img src="assets/images/ml.jpg.png" alt="Anúncio 1" class="ad-img">
-                </div>
-                <div class="smartphone-ad">
-                    <img src="assets/images/ML.jpg" alt="Anúncio 2" class="smartphone-img">
-                </div>
-
-                <button class="add-button">+</button>
- </div>
+    <!-- Botão com Dropdown -->
+    <div class="dropdown position-fixed" style="bottom: 20px; right: 20px;">
+        <button class="btn btn-primary dropdown-toggle btn-circle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            +
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Criar Flashcard</a></li>
+            <li><a class="dropdown-item" href="#">Criar Deck</a></li>
+            <li><a class="dropdown-item" href="#">Criar Sub-Deck</a></li>
+            <li><a class="dropdown-item" href="#">Compartilhar Deck</a></li>
+        </ul>
+    </div>
 
     <!--menu perfil do usuario-->
     <div class="d-flex">
