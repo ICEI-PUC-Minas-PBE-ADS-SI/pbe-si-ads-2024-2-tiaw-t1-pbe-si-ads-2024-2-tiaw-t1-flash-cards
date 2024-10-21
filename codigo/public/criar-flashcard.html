@@ -114,6 +114,22 @@
                 </ul>
             </div>
         </div>
+        <div class="sub-deck">
+            <h6 class="me-2">Sub-Deck:</h6>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="subDeckDropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Selecione um Sub-Deck
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="subDeckDropdown">
+                    <li><a class="dropdown-item" href="#">Geopolítica</a></li>
+                    <li><a class="dropdown-item" href="#">História do Brasil</a></li>
+                    <li><a class="dropdown-item" href="#">Vocabulário</a></li>
+                    <li><a class="dropdown-item" href="#">Filosofia Pré-Socrática</a></li>
+                    <li><a class="dropdown-item" href="#">Álgebra Linear</a></li>
+                </ul>
+            </div>
+        </div>
 
         <div class="d-flex justify-content-center align-items-center my-3">
             <button class="btn btn-outline-primary d-flex align-items-center" id="toggleSide">
@@ -185,14 +201,8 @@
 
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p class="footer-text">
-                <a href="#" class="footer-link">Sobre</a> | 
-                <a href="#" class="footer-link">Termos de Uso</a> | 
-                <a href="#" class="footer-link">Contato</a>
-            </p>
-        </div>
+    <footer class="mt-4">
+        <p>© 2024 Lethe - Todos os direitos reservados.</p>
     </footer>
     
 
@@ -204,20 +214,94 @@
         const sidebarClose = document.getElementById('sidebarClose');
         const profilePicture = document.getElementById('profilePicture');
         const profileUpload = document.getElementById('profileUpload');
-
+        
         sidebarToggle.addEventListener('click', () => {
             sidebar.classList.toggle('active');
         });
-
+    
         sidebarClose.addEventListener('click', () => {
             sidebar.classList.remove('active');
         });
+    
+        const deckDropdown = document.getElementById('deckDropdown');
+        const subDeckDropdown = document.getElementById('subDeckDropdown');
+    
+        document.querySelectorAll('#deckDropdown + .dropdown-menu .dropdown-item').forEach(item => {
+            item.addEventListener('click', function() {
+                deckDropdown.textContent = this.textContent;
+            });
+        });
+    
+        document.querySelectorAll('#subDeckDropdown + .dropdown-menu .dropdown-item').forEach(item => {
+            item.addEventListener('click', function() {
+                subDeckDropdown.textContent = this.textContent;
+            });
+        });
+    
+        const fontSizeDisplay = document.getElementById('fontSize');
+        const textarea = document.getElementById('flashcardContent');
+        let fontSize = 14;
+    
+        document.getElementById('increaseFont').addEventListener('click', () => {
+            fontSize += 2;
+            fontSizeDisplay.textContent = fontSize;
+            textarea.style.fontSize = fontSize + 'px';
+        });
+    
+        document.getElementById('decreaseFont').addEventListener('click', () => {
+            if (fontSize > 3) { 
+                fontSize -= 2;
+                fontSizeDisplay.textContent = fontSize;
+                textarea.style.fontSize = fontSize + 'px';
+            }
+        });
+    
+        const textColorInput = document.getElementById('textColor');
+        textColorInput.addEventListener('input', () => {
+            textarea.style.color = textColorInput.value;
+        });
+    
+        
+        const fontDropdownItems = document.querySelectorAll('.btn-group:nth-of-type(1) + .dropdown-menu .dropdown-item');
+        fontDropdownItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const selectedFont = this.textContent;
+                textarea.style.fontFamily = selectedFont;
+                item.closest('.btn-group').querySelector('.btn').textContent = selectedFont;
+            });
+        });
+    
+        const boldButton = document.querySelector('.btn.btn-outline-primary.fw-bold');
+        const italicButton = document.querySelector('.btn.btn-outline-primary.fst-italic');
+        const underlineButton = document.querySelector('.btn.btn-outline-primary[style*="text-decoration: underline;"]');
+    
+        boldButton.addEventListener('click', () => {
+            textarea.style.fontWeight = (textarea.style.fontWeight === 'bold' ? 'normal' : 'bold');
+        });
+    
+        italicButton.addEventListener('click', () => {
+            textarea.style.fontStyle = (textarea.style.fontStyle === 'italic' ? 'normal' : 'italic');
+        });
+    
+        underlineButton.addEventListener('click', () => {
+            textarea.style.textDecoration = (textarea.style.textDecoration === 'underline' ? 'none' : 'underline');
+        });
 
-
+        const toggleButton = document.getElementById('toggleSide');
+        let isFront = true;
+    
+        toggleButton.addEventListener('click', () => {
+            if (isFront) {
+                textarea.value = "Este é o verso do flashcard."; 
+                toggleButton.querySelector('span').textContent = "Verso"; 
+            } else {
+                textarea.value = "Insira o conteúdo do flashcard aqui..."; 
+                toggleButton.querySelector('span').textContent = "Frente"; 
+            }
+            isFront = !isFront; 
+        });
     </script>
-
-
-
+ 
 </body>
 
 </html>
