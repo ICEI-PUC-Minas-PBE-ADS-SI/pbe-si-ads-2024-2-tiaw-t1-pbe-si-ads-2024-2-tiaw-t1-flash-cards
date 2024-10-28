@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="editar.css">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="banner">
+            <img id="profileImage" src="https://via.placeholder.com/150" alt="Foto de Perfil" class="profile-img">
+            <input type="file" id="fileInput" accept="image/*" style="display:none">
+            <button id="editImageButton" onclick="document.getElementById('fileInput').click()">Alterar Foto de Perfil</button>
+            <button id="removeImageButton" style="display:none">Remover Foto de Perfil</button>
+        </div>
+        <div class="profile-info">
+            <input type="text" id="nameInput" placeholder="Nome @usuário" class="name-input">
+            <textarea id="bioInput" placeholder="Biografia"></textarea>
+            <button onclick="saveProfile()">Salvar Perfil</button>
+        </div>
+    </div>
+
+    <script src="editar.js"></script>
+</body>
+</html>
