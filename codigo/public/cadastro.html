@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Cadastro</title>
 
-    <link rel="stylesheet" href="./assets/css/cadastro.css">
+    <link rel="stylesheet" href="assets/css/login.css">
     <style>
 
     </style>
@@ -18,7 +18,7 @@
         <p style="text-align: center;">
             Caso já tenha login, <a href="login.html">clique aqui</a>.
         </p>
-        <form action="#" method="post">
+        <form id="cadastroForm">
             <label for="nome">Nome completo:</label>
             <input type="text" id="nome" name="nome" placeholder="Nome" required>
 
@@ -28,46 +28,73 @@
             <label for="email">E-mail ou Telefone:</label>
             <input type="email" id="email" name="email" placeholder="E-mail ou Telefone" required>
 
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Senha" required>
+
             <label for="data-nascimento">Data de Nascimento:</label>
             <div style="display: flex; justify-content: space-between;">
                 <select id="dia" name="dia" required>
                     <option value="" disabled selected>Dia</option>
-
                     <option value="1">1</option>
                     <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="2">6</option>
-                    <option value="2">7</option>
-                    <option value="2">8</option>
-                    <option value="2">9</option>
-                    <option value="2">10</option>
-                    <option value="2">11</option>
-                    <option value="2">12</option>
-                    <option value="2">13</option>
-                    <option value="22">22</option>
-
+                    <!-- Adicione mais opções conforme necessário -->
                 </select>
                 <select id="mes" name="mes" required>
                     <option value="" disabled selected>Mês</option>
-                    <option value="Jan">Jan</option>
-                    <option value="Set">Set</option>
-
+                    <option value="Jan">Janeiro</option>
+                    <!-- Adicione mais opções conforme necessário -->
                 </select>
                 <select id="ano" name="ano" required>
                     <option value="" disabled selected>Ano</option>
                     <option value="2024">2024</option>
-
+                    <!-- Adicione mais opções conforme necessário -->
                 </select>
             </div>
-
-            <p>Ao clicar em Cadastre-se, você concorda com nossos Termos, Política de Privacidade e Política de Cookies.
-            </p>
 
             <button type="submit">Cadastre-se</button>
         </form>
     </div>
+
+    <script>
+        // Função para hashear a senha (simulação simples)
+        function hashSenha(senha) {
+            return btoa(senha); // Usa base64 como exemplo, mas em produção use um algoritmo de hash mais seguro
+        }
+
+        document.getElementById("cadastroForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            // Coleta os dados do formulário
+            const nome = document.getElementById("nome").value;
+            const usuario = document.getElementById("usuario").value;
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+            const senhaHashed = hashSenha(senha); // Hasheia a senha
+
+            const dia = document.getElementById("dia").value;
+            const mes = document.getElementById("mes").value;
+            const ano = document.getElementById("ano").value;
+
+            // Cria um objeto usuário com senha hasheada
+            const usuarioObj = {
+                nome,
+                usuario,
+                email,
+                senha: senhaHashed,
+                dataNascimento: { dia, mes, ano }
+            };
+
+            // Salva no Local Storage
+            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+            usuarios.push(usuarioObj);
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+            alert("Usuário cadastrado com sucesso!");
+
+            // Limpa o formulário
+            document.getElementById("cadastroForm").reset();
+        });
+    </script>
 </body>
 
 </html>
