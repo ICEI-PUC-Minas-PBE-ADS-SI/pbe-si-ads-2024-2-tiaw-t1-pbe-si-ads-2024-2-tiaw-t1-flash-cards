@@ -1,90 +1,255 @@
 .body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-  .content {}
+.content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 40px;
+  color: #1a75ff;
+}
 
-  .navbar {
-    background: linear-gradient(to right, #4db8ff, #1a75ff);
-  }
+body.modal-open #homepage {
+  filter: blur(5px);
+  transition: filter 0.3s ease-in-out;
+}
 
-  .upgrade-button {
-    background-color: gold;
-    border-radius: 20px;
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-  }
+.btn-gradient {
+  background: linear-gradient(90deg, #e7c91f, #ff8c00);
+  color: white !important;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
 
-  .user-icon {
-    font-size: 24px;
-  }
+.modal-header {
+  justify-content: center !important;
+}
 
-  .navbar-toggler:focus {
-    box-shadow: none;
-  }
+.modal-title {
+  text-align: center !important;
+  flex-grow: 1 !important;
+  color: #1a75ff;
+}
 
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: -300px;
-    width: 300px;
-    height: 100%;
-    background-color: #b84e4e;
-    color: rgb(78, 157, 253);
-    transition: 0.3s;
-    padding: 15px;
-  }
+.custom-select-wrapper {
+  position: relative !important;
+}
 
-  .sidebar.active {
-    left: 0;
-  }
+.form-select {
+  border-radius: 20px !important;
+  background: linear-gradient(70deg, #87ceeb, #182f96) !important;
+  color: white !important;
+  padding: 10px !important;
+  appearance: none !important;
+  outline: none !important;
+}
 
-  .sidebar-close {
-    cursor: pointer;
-    font-size: 20px;
-  }
+.form-select:focus {
+  outline: none !important;
+}
 
-  .profile-picture {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    object-fit: cover;
-    cursor: pointer;
-  }
+.form-select option {
+  background: white !important;
+  color: black !important;
+}
 
-  #profileUpload {
-    display: none;
-  }
+.custom-input {
+  outline: none; /* Remove o outline padrão */
+}
 
-  .footer {
-    position: fixed; 
-    left: 0;
-    bottom: 0;
-    width: 100%; 
-    background-color: #f0f0f0; 
-    color: #666; 
-    text-align: center; 
-    padding: 10px 0; 
-    z-index: 1000; 
+.custom-input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Barra dos decks com gradiente */
+.deck-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 80%;
+  margin: 10px auto;
+  border-radius: 90px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(90deg, #4db8ff, #1a75ff);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* Efeito de hover na barra */
+.deck-bar:hover {
+  filter: brightness(1.2);
+  cursor: pointer;
+}
+
+/* Contêiner dos decks e números */
+.deck-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+/* Estilo dos números fora das barras */
+.deck-numbers {
+  display: flex;
+  gap: 20px;
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.deck-numbers .red {
+  color: red;
+}
+
+.deck-numbers .blue {
+  color: blue;
+}
+
+.deck-numbers .green {
+  color: green;
+}
+
+.deck-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner-right img {
+  width: 100%;
+  height: auto;
+  max-width: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.banner-bottom img {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.navbar {
+  background: linear-gradient(to right, #4db8ff, #1a75ff);
+}
+
+.upgrade-button {
+  background-color: gold;
+  border-radius: 20px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+
+.user-icon {
+  font-size: 24px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #b84e4e;
+  color: rgb(78, 157, 253);
+  transition: 0.3s;
+  padding: 15px;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar-close {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.profile-picture {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+#profileUpload {
+  display: none;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+  color: #666;
+  text-align: center;
+  padding: 10px 0;
+  z-index: 1000;
 }
 
 .footer-text {
-    margin: 0; 
+  margin: 0;
 }
 
 .footer-link {
-    color: #666; 
-    text-decoration: none; 
+  color: #666;
+  text-decoration: none;
 }
 
 .footer-link:hover {
-    text-decoration: underline; 
+  text-decoration: underline;
 }
 
-  @media (min-width: 992px) {
-    .navbar-toggler {
-      display: block !important;
-    }
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: block !important;
   }
+}
+
+.btn-circle {
+  position: fixed;
+  bottom: 180px;
+  right: 70px;
+  width: 90px;
+  height: 90px;
+  background-color: #0073e6;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 2.7rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+.dropdown-menu {
+  min-width: 0;
+}
+
+.btn-circle.dropdown-toggle::after {
+  display: none;
+}

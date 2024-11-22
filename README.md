@@ -4,11 +4,11 @@ Trata-se de um site de flashcards que tem como principal objetivo facilitar a me
 
 ## Alunos integrantes da equipe
 
-* Sarah Palhares Araujo
 * Gustavo Rodrigues de Almeida
-* Moisés Samuel Rezende Maia
 * Julia Larissa Camargos Costa
+* Moisés Samuel Rezende Maia
 * Otavio Rocha
+* Sarah Palhares Araujo
 
 ## Professores responsáveis
 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esqueceu a Senha</title>
+
+    <link rel="stylesheet" href="../../assets/css/esqueceu_senha.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Recuperação de Senha</h1>
+        <p>Insira seu e-mail ou nome de usuário para redefinir sua senha.</p>
+        <form id="recoveryForm">
+            <label for="usuario">E-mail ou Nome de Usuário:</label>
+            <input type="text" id="usuario" name="usuario" placeholder="E-mail ou Usuário" required>
+            <button type="submit">Verificar</button>
+        </form>
+
+        <div id="resetSection" style="display: none;">
+            <p>Digite sua nova senha:</p>
+            <input type="password" id="novaSenha" placeholder="Nova Senha">
+            <button onclick="redefinirSenha()">Redefinir Senha</button>
+        </div>
+    </div>
+
+    <script>
+        let usuarioEncontrado;
+
+        // Verifica se o e-mail ou usuário existe no Local Storage
+        document.getElementById("recoveryForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const usuarioInput = document.getElementById("usuario").value;
+            const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+            // Verifica se o usuário existe
+            usuarioEncontrado = usuarios.find(u => u.email === usuarioInput || u.usuario === usuarioInput);
+
+            if (usuarioEncontrado) {
+                alert("Usuário encontrado! Por favor, redefina sua senha.");
+                document.getElementById("resetSection").style.display = "block";
+            } else {
+                alert("Usuário ou e-mail não encontrado.");
+            }
+        });
+
+        // Redefine a senha e atualiza o Local Storage
+        function redefinirSenha() {
+            const novaSenha = document.getElementById("novaSenha").value;
+
+            if (novaSenha) {
+                const usuarios = JSON.parse(localStorage.getItem("usuarios"));
+                
+                // Hashea a nova senha (usando o mesmo método de hash do cadastro e login)
+                usuarioEncontrado.senha = btoa(novaSenha);
+
+                // Atualiza o usuário no Local Storage
+                const index = usuarios.findIndex(u => u.email === usuarioEncontrado.email || u.usuario === usuarioEncontrado.usuario);
+                usuarios[index] = usuarioEncontrado;
+                localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+                alert("Senha redefinida com sucesso!");
+                window.location.href = "login.html"; // Redireciona para a tela de login
+            } else {
+                alert("Por favor, insira uma nova senha.");
+            }
+        }
+    </script>
+</body>
+
+</html>

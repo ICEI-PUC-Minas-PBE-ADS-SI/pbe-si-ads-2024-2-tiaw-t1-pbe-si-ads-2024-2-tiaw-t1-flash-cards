@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/homepage.css">
+    <link rel="stylesheet" href="../../assets/css/homepage.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Biblioteca de Decks</title>
@@ -52,8 +52,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="assets/images/Logo lethe.png" alt="Logo" width="100">
+            <a class="navbar-brand d-flex align-items-center" href="../../index.html">
+                <img src="../../assets/images/Logo lethe.png" alt="Logo" width="100">
             </a>
 
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -61,12 +61,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#" id="userDropdown"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="assets/images/profilepicture.jpg" alt="Imagem de Perfil" class="profile-picture"
+                            <img src="../../assets/images/profilepicture.jpg" alt="Imagem de Perfil" class="profile-picture"
                                 id="profilePicture">
                             <span class="ms-2">Sua Conta</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li><a class="dropdown-item" href="../perfil/perfil.html">Perfil</a></li>
                             <li><a class="dropdown-item" href="#">Configurações</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Sair</a></li>
@@ -89,7 +89,7 @@
     <!-- Seção Biblioteca de Decks -->
     <div class="container mt-4">
         <div class="d-flex align-items-center mb-4 title-container">
-            <a href="index.html#sidebar" class="text-decoration-none">
+            <a href="../../index.html" class="text-decoration-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left">
                     <path fill-rule="evenodd"
                         d="M12.14 1.293a1 1 0 0 1 0 1.414L5.414 8l6.726 5.293a1 1 0 0 1-1.268 1.578l-7.5-6a1 1 0 0 1 0-1.578l7.5-6a1 1 0 0 1 1.268 0z" />
@@ -97,26 +97,26 @@
             </a>
             <h2 class="ms-2">Biblioteca de Decks</h2>
             <div class="search-container ms-auto">
-                <input type="text" class="form-control" id="searchInput" placeholder="Pesquisar seus decks" aria-label="Pesquisar">
+                <input type="text" class="form-control" id="searchInput" placeholder="Pesquise sua pasta de Decks" aria-label="Pesquisar" onkeyup="filterDecks()">
             </div>
         </div>
         <div class="row" id="deckContainer">
-            <!-- Decks de Biologia -->
+            <!-- Decks -->
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Células</h5>
-                        <p class="card-text">Descrição sobre células e suas funções.</p>
-                        <a href="deckbaralho.html" class="btn btn-primary">Ver Deck</a>
+                        <p class="card-text">Descrição sobre organelas e suas funções.</p>
+                        <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Genética</h5>
-                        <p class="card-text">Descrição sobre os princípios da genética.</p>
-                        <a href="deckbaralho.html" class="btn btn-primary">Ver Deck</a>
+                        <h5 class="card-title">Matemática</h5>
+                        <p class="card-text">Equação de Primeiro grau, fatoração</p>
+                        <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
             </div>
@@ -125,39 +125,56 @@
                     <div class="card-body">
                         <h5 class="card-title">Ecologia</h5>
                         <p class="card-text">Descrição sobre ecossistemas e interações.</p>
-                        <a href="deckbaralho.html" class="btn btn-primary">Ver Deck</a>
+                        <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Anatomia Humana</h5>
-                        <p class="card-text">Descrição sobre os sistemas do corpo humano.</p>
-                        <a href="deckbaralho.html" class="btn btn-primary">Ver Deck</a>
+                        <h5 class="card-title">Geografia</h5>
+                        <p class="card-text">Mapas, Tipos de vegetação, Cidades Verdes</p>
+                        <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Evolução</h5>
-                        <p class="card-text">Descrição sobre a teoria da evolução.</p>
-                        <a href="deckbaralho.html" class="btn btn-primary">Ver Deck</a>
+                        <h5 class="card-title">BIOLOGIA</h5>
+                        <p class="card-text">Descrição sobre a teoria da evolução, Anatomia, Plantas.</p>
+                        <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Botânica</h5>
-                        <p class="card-text">Descrição sobre plantas e suas características.</p>
-                        <a href="deckbaralho.html" class="btn btn-primary">Ver Deck</a>
+                        <h5 class="card-title">História</h5>
+                        <p class="card-text">Primeira Guerra, Revolução Industrial, Guerra dos Canudos.</p>
+                        <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Função para filtrar os decks conforme a pesquisa
+        function filterDecks() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const deckItems = document.querySelectorAll('.deck-item');
+
+            deckItems.forEach(item => {
+                const title = item.querySelector('.card-title').textContent.toLowerCase();
+                if (title.includes(searchInput)) {
+                    item.style.display = 'block'; // Exibe o item
+                } else {
+                    item.style.display = 'none'; // Esconde o item
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
