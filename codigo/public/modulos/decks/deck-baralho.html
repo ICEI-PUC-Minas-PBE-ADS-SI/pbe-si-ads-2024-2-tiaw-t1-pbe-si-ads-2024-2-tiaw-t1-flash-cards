@@ -97,26 +97,26 @@
             </a>
             <h2 class="ms-2">Biblioteca de Decks</h2>
             <div class="search-container ms-auto">
-                <input type="text" class="form-control" id="searchInput" placeholder="Pesquisar seus decks" aria-label="Pesquisar">
+                <input type="text" class="form-control" id="searchInput" placeholder="Pesquise sua pasta de Decks" aria-label="Pesquisar" onkeyup="filterDecks()">
             </div>
         </div>
         <div class="row" id="deckContainer">
-            <!-- Decks de Biologia -->
+            <!-- Decks -->
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Células</h5>
-                        <p class="card-text">Descrição sobre células e suas funções.</p>
-                        <a href="deck-baralho.html" class="btn btn-primary">Ver Deck</a>
+                        <p class="card-text">Descrição sobre organelas e suas funções.</p>
+                        <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Genética</h5>
-                        <p class="card-text">Descrição sobre os princípios da genética.</p>
-                        <a href="deck-baralho.html" class="btn btn-primary">Ver Deck</a>
+                        <h5 class="card-title">Matemática</h5>
+                        <p class="card-text">Equação de Primeiro grau, fatoração</p>
+                        <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
             </div>
@@ -125,39 +125,56 @@
                     <div class="card-body">
                         <h5 class="card-title">Ecologia</h5>
                         <p class="card-text">Descrição sobre ecossistemas e interações.</p>
-                        <a href="deck-baralho.html" class="btn btn-primary">Ver Deck</a>
+                        <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Anatomia Humana</h5>
-                        <p class="card-text">Descrição sobre os sistemas do corpo humano.</p>
-                        <a href="deck-baralho.html" class="btn btn-primary">Ver Deck</a>
+                        <h5 class="card-title">Geografia</h5>
+                        <p class="card-text">Mapas, Tipos de vegetação, Cidades Verdes</p>
+                        <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Evolução</h5>
-                        <p class="card-text">Descrição sobre a teoria da evolução.</p>
-                        <a href="deck-baralho.html" class="btn btn-primary">Ver Deck</a>
+                        <h5 class="card-title">BIOLOGIA</h5>
+                        <p class="card-text">Descrição sobre a teoria da evolução, Anatomia, Plantas.</p>
+                        <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Botânica</h5>
-                        <p class="card-text">Descrição sobre plantas e suas características.</p>
-                        <a href="deck-baralho.html" class="btn btn-primary">Ver Deck</a>
+                        <h5 class="card-title">História</h5>
+                        <p class="card-text">Primeira Guerra, Revolução Industrial, Guerra dos Canudos.</p>
+                        <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Função para filtrar os decks conforme a pesquisa
+        function filterDecks() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const deckItems = document.querySelectorAll('.deck-item');
+
+            deckItems.forEach(item => {
+                const title = item.querySelector('.card-title').textContent.toLowerCase();
+                if (title.includes(searchInput)) {
+                    item.style.display = 'block'; // Exibe o item
+                } else {
+                    item.style.display = 'none'; // Esconde o item
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
