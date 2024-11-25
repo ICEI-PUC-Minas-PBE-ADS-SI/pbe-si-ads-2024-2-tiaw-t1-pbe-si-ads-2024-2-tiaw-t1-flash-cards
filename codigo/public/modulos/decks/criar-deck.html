@@ -10,34 +10,36 @@
   <title>Criar Deck</title>
 
   <style>
-    #modal-subdeck {
-      width: 300px;
-      padding: 20px;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #ffffff, #2f8bef);
       font-family: Arial, sans-serif;
+      min-height: 100vh;
     }
 
-    #modal-subdeck input {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
 
-    #modal-subdeck .button-container {
+    #homepage {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 70px);
+      padding-top: 70px;
+      box-sizing: border-box;
     }
 
-    #btn-ok, #btn-cancel {
+
+    #deck {
+      background: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      text-align: center;
+    }
+
+    /* Botões */
+    #btn-ok,
+    #btn-cancel {
       width: 48%;
       padding: 10px;
       border: none;
@@ -50,39 +52,14 @@
       color: white;
     }
 
-    #btn-cancel {
-      background-color: transparent;
-      color: #007bff;
-      text-decoration: none;
-    }
 
+    /* Mensagem de erro */
     #error-message {
       color: red;
       margin-top: 10px;
       font-size: 0.9em;
       display: none;
     }
-
-    .sidebar {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 250px;
-      height: 100%;
-      background-color: white;
-      transform: translateX(-250px);
-      transition: transform 0.3s ease;
-    }
-
-    .sidebar.active {
-      transform: translateX(0);
-    }
-
-    .sidebar-close {
-      cursor: pointer;
-      font-size: 1.5rem;
-    }
-
   </style>
 </head>
 
@@ -118,8 +95,10 @@
 
           <li class="nav-item">
             <button class="btn btn-warning ms-3 text-light">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
               </svg> Torne-se Pro!
             </button>
           </li>
@@ -136,30 +115,40 @@
     </div>
     <ul class="mt-3" style="list-style-type: none; padding: 0; line-height: 1.6;">
       <li style="padding: 10px 0;border-bottom: 1px solid lightgray;">
-        <a href="criar-flashcard.html" style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">Criar Flashcards</a>
+        <a href="criar-flashcard.html" style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">Criar
+          Flashcards</a>
       </li>
       <li style="padding: 10px 0;border-bottom: 1px solid lightgray;">
-        <a href="deck-baralho.html" style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">Biblioteca de Decks</a>
+        <a href="deck-baralho.html"
+          style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">Biblioteca de Decks</a>
       </li>
       <li style="padding: 10px 0; border-bottom: 1px solid lightgray;">
         <a href="../pro/pro.html" style="color: rgb(240, 236, 43); text-decoration: none; font-size: 1.3rem;">Pro</a>
       </li>
       <li style="padding: 10px 0; border-bottom: 1px solid lightgray;">
-        <a href="../estatisticas/estatisticas.html" style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">Estatísticas</a>
+        <a href="../estatisticas/estatisticas.html"
+          style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">Estatísticas</a>
       </li>
     </ul>
   </div>
 
   <!--conteúdo da tela-->
   <div class="content" id="homepage">
-    <div id="modal-subdeck">
+    <div id="deck">
       <h4>Criar Deck</h4>
+
+      <p>Nome:</p>
       <input type="text" id="deck-name" placeholder="Digite aqui" />
       <div id="error-message">Por favor, insira um nome de deck válido ou escolha um nome que não seja duplicado.</div>
-      
-      <div class="button-container">
-        <button id="btn-ok">OK</button>
-        <button id="btn-cancel">Cancelar</button>
+
+      <div>
+        <p>Descrição:</p>
+        <input type="text" id="deck-description" placeholder="Digite aqui" class="">
+      </div>
+
+
+      <div class="button-container mt-3">
+        <button id="btn-ok">Criar</button>
       </div>
     </div>
   </div>
@@ -175,23 +164,71 @@
   </footer>
 
   <script>
-    const existingDecks = ['História', 'Geografia', 'Inglês', 'Filosofia'];
     const btnOk = document.getElementById('btn-ok');
-    const deckNameInput = document.getElementById('deck-name');
-    const errorMessage = document.getElementById('error-message');
+    const deckNameInput = document.getElementById('deck-name'); // Campo de nome do deck
+    const deckDescriptionInput = document.getElementById('deck-description'); // Campo de descrição do deck
+    const errorMessage = document.getElementById('error-message'); // Elemento para exibir mensagens de erro
+    const confirmationMessage = document.getElementById('confirmation-message'); // Elemento para exibir a confirmação
 
     btnOk.addEventListener('click', () => {
       const newDeckName = deckNameInput.value.trim();
+      const newDeckDescription = deckDescriptionInput.value.trim();
 
-      if (newDeckName === '' || existingDecks.includes(newDeckName)) {
+      // Verifica se o nome do deck está vazio ou já existe
+      if (newDeckName === '') {
+        errorMessage.textContent = 'Nome do deck não pode ser vazio!';
         errorMessage.style.display = 'block';
-      } else {
-        errorMessage.style.display = 'none';
-        alert(`Deck "${newDeckName}" criado com sucesso!`);
+        return;
       }
+
+      // fetch para obter os decks existentes no db.json
+      fetch('http://localhost:3000/decks')
+        .then(response => response.json())  // converte a resposta em JSON
+        .then(existingDecks => {
+          // verifica se o nome do deck já existe
+          const deckExists = existingDecks.some(deck => deck.name === newDeckName);
+
+          if (deckExists) {
+            errorMessage.textContent = 'Já existe um deck com esse nome!';
+            errorMessage.style.display = 'block';
+          } else {
+            errorMessage.style.display = 'none'; // oculta a mensagem de erro
+
+            // cria o objeto para o novo deck
+            const newDeck = {
+              name: newDeckName,
+              description: newDeckDescription,
+              flashcards: [] // inicializa o array de flashcards como vazio
+            };
+
+            // envia os dados para o JSON Server para salvar o novo deck
+            fetch('http://localhost:3000/decks', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(newDeck)
+            })
+              .then(response => {
+                if (response.ok) {
+                  // Exibe mensagem de confirmação
+                  confirmationMessage.textContent = `Deck "${newDeckName}" criado com sucesso!`;
+                  confirmationMessage.style.display = 'block';
+                } else {
+                  throw new Error('Erro ao salvar o deck.');
+                }
+              })
+              .catch(error => console.error('Erro ao salvar o deck:', error));
+          }
+        })
+        .catch(error => {
+          console.error('Erro ao buscar decks existentes:', error);
+        });
     });
 
-    
+
+
+
     const sidebar = document.getElementById('sidebar');
     const sidebarToggle = document.getElementById('sidebarToggle');
     const sidebarClose = document.getElementById('sidebarClose');
@@ -203,6 +240,7 @@
     sidebarClose.addEventListener('click', () => {
       sidebar.classList.remove('active');
     });
+
 
   </script>
 </body>
