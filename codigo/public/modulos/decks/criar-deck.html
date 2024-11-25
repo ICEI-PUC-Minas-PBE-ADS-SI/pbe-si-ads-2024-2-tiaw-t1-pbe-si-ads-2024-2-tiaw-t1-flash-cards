@@ -13,10 +13,18 @@
     body {
       margin: 0;
       background: linear-gradient(to bottom, #ffffff, #2f8bef);
-      font-family: Arial, sans-serif;
       min-height: 100vh;
     }
 
+    footer {
+    background-color: #4a90e2;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
 
     #homepage {
       display: flex;
@@ -70,7 +78,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <a class="navbar-brand d-flex align-items-center" href="#">
+      <a class="navbar-brand d-flex align-items-center" href="../../index.html">
         <img src="../../assets/images/Logo lethe.png" alt="Logo" width="100">
       </a>
 
@@ -84,8 +92,7 @@
               <span class="ms-2">Sua Conta</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-              <li><a class="dropdown-item" href="../perfil/perfil.html">Perfil</a></li>
-              <li><a class="dropdown-item" href="#">Configurações</a></li>
+              <li><a class="dropdown-item" href="../perfil/perfil.html">Configurações da Conta</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -114,7 +121,7 @@
       <span class="sidebar-close" id="sidebarClose">&times;</span>
     </div>
     <ul class="mt-3" style="list-style-type: none; padding: 0; line-height: 1.6;">
-      <li style="padding: 10px 0;border-bottom: 1px solid lightgray;">
+      <li style="padding: 10px 0;border-bottom: 1px solid rgb(255, 255, 255);">
         <a href="criar-flashcard.html" style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">Criar
           Flashcards</a>
       </li>
@@ -153,77 +160,48 @@
     </div>
   </div>
 
-  <footer class="footer">
-    <div class="container">
-      <p class="footer-text">
-        <a href="#" class="footer-link">Sobre</a> |
-        <a href="#" class="footer-link">Termos de Uso</a> |
-        <a href="#" class="footer-link">Contato</a>
-      </p>
-    </div>
-  </footer>
+  <footer class="mt-3">
+    <p>© 2024 Lethe - Todos os direitos reservados.</p>
+</footer>
 
   <script>
     const btnOk = document.getElementById('btn-ok');
-    const deckNameInput = document.getElementById('deck-name'); // Campo de nome do deck
-    const deckDescriptionInput = document.getElementById('deck-description'); // Campo de descrição do deck
-    const errorMessage = document.getElementById('error-message'); // Elemento para exibir mensagens de erro
-    const confirmationMessage = document.getElementById('confirmation-message'); // Elemento para exibir a confirmação
+    const deckNameInput = document.getElementById('deck-name');
+    const deckDescriptionInput = document.getElementById('deck-description');
+    const errorMessage = document.getElementById('error-message');
 
     btnOk.addEventListener('click', () => {
       const newDeckName = deckNameInput.value.trim();
       const newDeckDescription = deckDescriptionInput.value.trim();
 
-      // Verifica se o nome do deck está vazio ou já existe
       if (newDeckName === '') {
         errorMessage.textContent = 'Nome do deck não pode ser vazio!';
         errorMessage.style.display = 'block';
         return;
       }
 
-      // fetch para obter os decks existentes no db.json
-      fetch('http://localhost:3000/decks')
-        .then(response => response.json())  // converte a resposta em JSON
-        .then(existingDecks => {
-          // verifica se o nome do deck já existe
-          const deckExists = existingDecks.some(deck => deck.name === newDeckName);
+      const existingDecks = JSON.parse(localStorage.getItem('decks')) || [];
 
-          if (deckExists) {
-            errorMessage.textContent = 'Já existe um deck com esse nome!';
-            errorMessage.style.display = 'block';
-          } else {
-            errorMessage.style.display = 'none'; // oculta a mensagem de erro
+      const deckExists = existingDecks.some(deck => deck.name === newDeckName);
 
-            // cria o objeto para o novo deck
-            const newDeck = {
-              name: newDeckName,
-              description: newDeckDescription,
-              flashcards: [] // inicializa o array de flashcards como vazio
-            };
+      if (deckExists) {
+        errorMessage.textContent = 'Já existe um deck com esse nome!';
+        errorMessage.style.display = 'block';
+      } else {
+        errorMessage.style.display = 'none';
 
-            // envia os dados para o JSON Server para salvar o novo deck
-            fetch('http://localhost:3000/decks', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(newDeck)
-            })
-              .then(response => {
-                if (response.ok) {
-                  // Exibe mensagem de confirmação
-                  confirmationMessage.textContent = `Deck "${newDeckName}" criado com sucesso!`;
-                  confirmationMessage.style.display = 'block';
-                } else {
-                  throw new Error('Erro ao salvar o deck.');
-                }
-              })
-              .catch(error => console.error('Erro ao salvar o deck:', error));
-          }
-        })
-        .catch(error => {
-          console.error('Erro ao buscar decks existentes:', error);
-        });
+        const newDeck = {
+          name: newDeckName,
+          description: newDeckDescription,
+          flashcards: []
+        };
+
+        existingDecks.push(newDeck);
+
+        localStorage.setItem('decks', JSON.stringify(existingDecks));
+
+        alert(`Deck "${newDeckName}" criado com sucesso!`);
+      }
     });
 
 
