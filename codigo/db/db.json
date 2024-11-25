@@ -87,6 +87,13 @@
       "description": "Descrição do Novo Deck",
       "userId": 1,
       "flashcards": []
+    },
+    {
+      "id": 8,
+      "name": "testeee",
+      "description": "descrição testee",
+      "userId": 1,
+      "flashcards": []
     }
   ],
   "answers": [
