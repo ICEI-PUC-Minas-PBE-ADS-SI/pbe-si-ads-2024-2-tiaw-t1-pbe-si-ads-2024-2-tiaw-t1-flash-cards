@@ -80,6 +80,13 @@
       "description": "Primeira Guerra, Revolução Industrial, Guerra dos Canudos.",
       "userId": 2,
       "flashcards": []
+    },
+    {
+      "id": 7,
+      "name": "Novo Deck",
+      "description": "Descrição do Novo Deck",
+      "userId": 1,
+      "flashcards": []
     }
   ],
   "answers": [
