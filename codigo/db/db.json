@@ -1,25 +1,111 @@
 {
-  "usuarios": [
+  "users": [
     {
       "id": 1,
-      "login": "admin",
-      "senha": "123",
-      "nome": "Administrador do Sistema",
-      "email": "admin@abc.com"
+      "name": "João Silva",
+      "email": "joao.silva@email.com",
+      "password": "senha123",
+      "decks": [
+        1,
+        2
+      ]
     },
     {
       "id": 2,
-      "login": "user",
-      "senha": "123",
-      "nome": "Usuario Comum",
-      "email": "user@abc.com"
+      "name": "Maria Oliveira",
+      "email": "maria.oliveira@email.com",
+      "password": "senha456",
+      "decks": [
+        3
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": 1,
+      "question": "Qual é a capital da França?",
+      "answer": "Paris",
+      "deckId": 1
     },
     {
-      "login": "rommel",
-      "senha": "123",
-      "nome": "Rommel",
-      "email": "rommel@gmail.com",
-      "id": 3
+      "id": 2,
+      "question": "Quem pintou a Mona Lisa?",
+      "answer": "Leonardo da Vinci",
+      "deckId": 2
+    }
+  ],
+  "decks": [
+    {
+      "id": 1,
+      "name": "Células",
+      "description": "Descrição sobre organelas e suas funções.",
+      "userId": 1,
+      "flashcards": [
+        1
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Matemática",
+      "description": "Equação de Primeiro grau, fatoração",
+      "userId": 1,
+      "flashcards": [
+        2
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Ecologia",
+      "description": "Descrição sobre ecossistemas e interações.",
+      "userId": 2,
+      "flashcards": []
+    },
+    {
+      "id": 4,
+      "name": "Geografia",
+      "description": "Mapas, Tipos de vegetação, Cidades Verdes",
+      "userId": 2,
+      "flashcards": []
+    },
+    {
+      "id": 5,
+      "name": "BIOLOGIA",
+      "description": "Descrição sobre a teoria da evolução, Anatomia, Plantas.",
+      "userId": 2,
+      "flashcards": []
+    },
+    {
+      "id": 6,
+      "name": "História",
+      "description": "Primeira Guerra, Revolução Industrial, Guerra dos Canudos.",
+      "userId": 2,
+      "flashcards": []
+    }
+  ],
+  "answers": [
+    {
+      "id": 1,
+      "userId": 1,
+      "flashcardId": 1,
+      "isCorrect": true
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "flashcardId": 2,
+      "isCorrect": false
+    }
+  ],
+  "perfil": [
+    {
+      "fotoPerfil": "",
+      "nome": "",
+      "username": "",
+      "biografia": "",
+      "decksCompartilhados": {
+        "texto": "",
+        "quantidade": 0
+      }
     }
   ]
 }
