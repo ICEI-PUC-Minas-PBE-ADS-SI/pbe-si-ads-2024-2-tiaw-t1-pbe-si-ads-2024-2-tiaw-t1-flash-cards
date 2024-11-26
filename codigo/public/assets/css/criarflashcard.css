@@ -79,21 +79,36 @@
     text-align: center;   
 }
 
-#responseButtons .btn {
-    color: white; /* Texto branco */
-    display: none;
+#responseButtons .btn:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
 }
 
+
+#responseButtons .btn-danger:hover {
+    background-color: #ff4d4d;
+}
+
+#responseButtons .btn-info:hover {
+    background-color: #4fa3f7;
+}
+
+#responseButtons .btn-success:hover {
+    background-color: #39b54a;
+}
+
+
 .btn-danger {
-    background-color: red; /* Fundo vermelho */
+    background-color: red;
 }
 
 .btn-info {
-    background-color: lightblue; /* Fundo azul claro */
+    background-color: lightblue;
 }
 
 .btn-success {
-    background-color: green; /* Fundo verde */
+    background-color: green;
 }
 
 .flashcard-label {

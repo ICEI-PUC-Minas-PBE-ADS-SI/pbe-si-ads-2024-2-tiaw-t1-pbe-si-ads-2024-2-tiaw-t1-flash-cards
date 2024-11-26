@@ -21,12 +21,10 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!--logo-->
         <a class="navbar-brand d-flex align-items-center" href="#">
           <img src="assets/images/Logo lethe.png" alt="Logo" width="100" />
         </a>
 
-        <!--botão sua conta-->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto align-items-center">
             <li class="nav-item dropdown">
@@ -50,18 +48,24 @@
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="userDropdown"
               >
-                <li><a class="dropdown-item" href="./modulos/perfil/perfil.html">Perfil</a></li>
+                <li>
+                  <a class="dropdown-item" href="./modulos/perfil/perfil.html"
+                    >Perfil</a
+                  >
+                </li>
                 <li><a class="dropdown-item" href="#">Configurações</a></li>
                 <li>
                   <hr class="dropdown-divider" />
                 </li>
-                <li><a class="dropdown-item" href="#">Sair</a></li>
+                <li><a class="dropdown-item" href="./modulos/login/login.html">Sair</a></li>
               </ul>
             </li>
 
-            <!-- botão pro -->
             <li class="nav-item">
-              <a href="./modulos/pro/pro.html" class="btn btn-warning ms-3 text-light">
+              <a
+                href="./modulos/pro/pro.html"
+                class="btn btn-warning ms-3 text-light"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -82,7 +86,6 @@
       </div>
     </nav>
 
-    <!--sidebar-->
     <div class="sidebar" id="sidebar" style="background-color: white">
       <div class="d-flex justify-content-between align-items-center">
         <h5 style="font-size: 1.75rem; font-weight: bold; margin: 0">Menu</h5>
@@ -140,62 +143,11 @@
       </ul>
     </div>
 
-    <!--conteúdo da tela-->
     <div class="content" id="homepage">
       <link rel="stylesheet" href="assets/css/homepage.css" />
       <div class="deck-column">
         <h3>Seus Decks:</h3>
-
-        <!-- Filosofia -->
-        <div class="deck-container">
-          <a href="modulos/decks/deck-sub-baralho.html" class="deck-bar">Filosofia</a>
-          <div class="deck-numbers">
-            <span class="red">18</span>
-            <span class="blue">20</span>
-            <span class="green">15</span>
-          </div>
-        </div>
-
-        <!-- Matemática -->
-        <div class="deck-container">
-          <a href="modulos/decks/deck-sub-baralho.html" class="deck-bar">Matemática</a>
-          <div class="deck-numbers">
-            <span class="red">30</span>
-            <span class="blue">12</span>
-            <span class="green">4</span>
-          </div>
-        </div>
-
-        <!-- Geografia -->
-        <div class="deck-container">
-          <a href="modulos/decks/deck-sub-baralho.html" class="deck-bar">Geografia</a>
-          <div class="deck-numbers">
-            <span class="red">10</span>
-            <span class="blue">8</span>
-            <span class="green">24</span>
-          </div>
-        </div>
-
-        <!-- Inglês -->
-        <div class="deck-container">
-          <a href="modulos/decks/deck-sub-baralho.html" class="deck-bar">Inglês</a>
-          <div class="deck-numbers">
-            <span class="red">2</span>
-            <span class="blue">4</span>
-            <span class="green">35</span>
-          </div>
-        </div>
-        <!-- Banner Inferior -->
-        <div class="banner-bottom">
-          <img
-            src="assets/images/ml.jpg.png"
-            alt="Banner Inferior"
-            style="width: 100%; height: auto"
-          />
-        </div>
-      </div>
-
-      <!-- Banner Lateral -->
+        <div id="deck-list"></div>
       <div class="banner-right">
         <img
           src="assets/images/ML.jpg"
@@ -205,7 +157,6 @@
       </div>
     </div>
 
-    <!-- Botão com Dropdown -->
     <div class="dropdown position-fixed" style="bottom: 20px; right: 20px">
       <button
         class="btn btn-primary dropdown-toggle btn-circle"
@@ -222,9 +173,10 @@
             >Criar Flashcard</a
           >
         </li>
-        <li><a class="dropdown-item" href="./modulos/decks/criar-deck.html">Criar Deck</a></li>
         <li>
-          <a class="dropdown-item" href="./modulos/decks/criar-subdeck.html">Criar Sub-Deck</a>
+          <a class="dropdown-item" href="./modulos/decks/criar-deck.html"
+            >Criar Deck</a
+          >
         </li>
         <li>
           <a
@@ -247,9 +199,8 @@
     >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-          <!-- Cabeçalho -->
           <div class="modal-header justify-content-center">
-            <h3 class="modal-title " id="compartilharDeckLabel">
+            <h3 class="modal-title" id="compartilharDeckLabel">
               Compartilhar Deck
             </h3>
             <button
@@ -260,14 +211,14 @@
             ></button>
           </div>
 
-          <!-- Corpo do Modal -->
           <div class="modal-body">
             <form>
               <div class="mb-3">
-                <label for="deckSelect" class="form-label"
-                  >Deck: </label
+                <label for="deckSelect" class="form-label">Deck: </label>
+                <select
+                  id="deckSelect"
+                  class="form-select custom-select-wrapper"
                 >
-                <select id="deckSelect" class="form-select custom-select-wrapper">
                   <option value="geografia">Geografia</option>
                   <option value="matematica">Matemática</option>
                   <option value="prova-ciencias">Prova Ciências</option>
@@ -285,13 +236,18 @@
                   class="form-control custom-input"
                   id="messageInput"
                   placeholder="Digite aqui"
-                  style="width: 100%; height: 40px; border-radius: 15px; border-color: black; outline: none;"
+                  style="
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 15px;
+                    border-color: black;
+                    outline: none;
+                  "
                 />
               </div>
             </form>
           </div>
 
-          <!-- Rodapé do Modal -->
           <div class="modal-footer d-flex justify-content-center">
             <button type="button" class="btn btn-gradient">
               Compartilhar com o Pro!
@@ -325,6 +281,89 @@
       sidebarClose.addEventListener("click", () => {
         sidebar.classList.remove("active");
       });
+
+      const currentUserId = 1; //TODO ALTERAR PARA LOCALSTORAGE NO FUTURO
+
+      const jsonUrl = "../db/db.json"; // path de acordo com o live-server
+
+      async function fetchDecks() {
+        try {
+          const response = await fetch(jsonUrl);   
+          console.log(response);
+                 
+          if (!response.ok) {
+            throw new Error("Erro ao carregar o arquivo JSON");
+          }
+
+          const data = await response.json();
+
+          const currentUser = data.users.find((user) => user.id === currentUserId);
+
+          if (!currentUser) {
+            console.error("Usuário não encontrado");
+            return;
+          }
+          const userDecksIds = data.users.find(
+            (user) => user.id === currentUserId
+          ).decks;
+
+          const userDecks = data.decks.filter((deck) =>
+            userDecksIds.includes(deck.id)
+          );
+
+          renderDecks(userDecks);
+        } catch (error) {
+          console.error("Erro ao carregar decks:", error);
+        }
+      }
+
+      function renderDecks(decks) {       
+        const deckListContainer = document.getElementById("deck-list");        
+        if (decks.length === 0) {
+          const message = document.createElement('p');
+          message.textContent = "Você ainda não possui decks!";
+          message.style.color = "gray";
+          message.style.textAlign = "center";
+          deckListContainer.appendChild(message);
+          return;
+        }
+
+        decks.forEach((deck) => {
+          const deckContainer = document.createElement("div");
+          deckContainer.className = "deck-container";
+
+          const deckBar = document.createElement("a");
+          deckBar.href = "modulos/decks/deck-sub-baralho.html";
+          deckBar.className = "deck-bar";
+          deckBar.textContent = deck.name;
+
+          const deckNumbers = document.createElement("div");
+          deckNumbers.className = "deck-numbers";
+
+          const redSpan = document.createElement("span");
+          redSpan.className = "red";
+          redSpan.textContent = deck.flashcards.length;
+
+          const blueSpan = document.createElement("span");
+          blueSpan.className = "blue";
+          blueSpan.textContent = Math.floor(Math.random() * 10);
+
+          const greenSpan = document.createElement("span");
+          greenSpan.className = "green";
+          greenSpan.textContent = Math.floor(Math.random() * 10);
+
+          deckNumbers.appendChild(redSpan);
+          deckNumbers.appendChild(blueSpan);
+          deckNumbers.appendChild(greenSpan);
+
+          deckContainer.appendChild(deckBar);
+          deckContainer.appendChild(deckNumbers);
+
+          deckListContainer.appendChild(deckContainer);
+        });
+      }
+
+      fetchDecks();
     </script>
   </body>
 </html>

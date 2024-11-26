@@ -1,65 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="../../assets/css/login.css">
-  
-    <style>
-       
-    </style>
-</head>
+    <link rel="stylesheet" href="../../assets/css/login.css" />
 
-<body>
+    <style></style>
+  </head>
+
+  <body>
     <div class="container">
-        <h1>Login</h1>
-        <form id="loginForm">
-            <label for="usuario">Usuário:</label>
-            <input type="text" id="usuario" name="usuario" placeholder="Usuário" required>
+      <h1>Login</h1>
+      <form id="loginForm">
+        <label for="usuario">Usuário:</label>
+        <input
+          type="text"
+          id="usuario"
+          name="usuario"
+          placeholder="Usuário"
+          required
+        />
 
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" placeholder="Senha" required>
+        <label for="senha">Senha:</label>
+        <input
+          type="password"
+          id="senha"
+          name="senha"
+          placeholder="Senha"
+          required
+        />
 
-            <button type="submit">Entrar</button>
-            <a href="./esqueceu-a-senha.html"><label for="esqueceu">Esqueceu a senha</label></a><br>
-            <a href="./cadastro.html"><label for="">Cadastre-se já</label></a>
-        </form>
-
+        <button type="submit">Entrar</button>
+        <a href="./esqueceu-a-senha.html"
+          ><label for="esqueceu">Esqueceu a senha</label></a
+        ><br />
+        <a href="./cadastro.html"><label for="">Cadastre-se já</label></a>
+      </form>
     </div>
-    
 
     <script>
-        // Função de hashing para a senha (usando o mesmo método da tela de cadastro)
-        function hashSenha(senha) {
-            return btoa(senha); // Deve ser o mesmo algoritmo usado no cadastro
-        }
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
 
-        // Event listener para o formulário de login
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Impede o envio padrão do formulário
+          const usuario = document.getElementById("usuario").value;
+          const senha = document.getElementById("senha").value;
+          const jsonUrl = "/codigo/db/db.json"; //TODO ATUALIZAR para identificar tanto o JSON quanto local storage
 
-            // Coleta os dados do formulário de login
-            const usuario = document.getElementById("usuario").value;
-            const senha = document.getElementById("senha").value;
-            const senhaHashed = hashSenha(senha); // Hash da senha para comparar
+        //   const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        // const usuarioEncontrado = usuarios.find(u => u.usuario === usuario && u.senha === senhaHashed);
 
-            // Recupera a lista de usuários do Local Storage
-            const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+          try {
+            const response = await fetch(jsonUrl);
+            console.log(response);
+            if (!response.ok) {
+              alert("Erro ao carregar os dados. Tente novamente mais tarde.");
+              return;
+            }
 
-            // Verifica se o usuário e a senha correspondem a um cadastro existente
-            const usuarioEncontrado = usuarios.find(u => u.usuario === usuario && u.senha === senhaHashed);
+            const data = await response.json();
+            const usuarioEncontrado = data.users.find(
+              (u) => u.email === usuario && u.password === senha
+            );
+
+
+            console.log(usuarioEncontrado);
+            
 
             if (usuarioEncontrado) {
-                alert("Login bem-sucedido! Bem-vindo(a) " + usuarioEncontrado.nome + "!");
-                // Redirecionar para uma página ou fazer outra ação após o login
-                window.location.href = "home.html"; // Exemplo de redirecionamento para a página inicial
+              alert(
+                "Login bem-sucedido! Bem-vindo(a) " +
+                  usuarioEncontrado.nome +
+                  "!"
+              );
+              window.location.href = "home.html";
             } else {
-                alert("Usuário ou senha incorretos!");
+              alert("Usuário ou senha incorretos!");
             }
+          } catch (error) {}
         });
     </script>
-</body>
-
+  </body>
 </html>

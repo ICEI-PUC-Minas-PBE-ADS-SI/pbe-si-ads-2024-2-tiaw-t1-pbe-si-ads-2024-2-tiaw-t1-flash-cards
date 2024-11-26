@@ -66,19 +66,36 @@
                         d="M12.14 1.293a1 1 0 0 1 0 1.414L5.414 8l6.726 5.293a1 1 0 0 1-1.268 1.578l-7.5-6a1 1 0 0 1 0-1.578l7.5-6a1 1 0 0 1 1.268 0z" />
                 </svg>
             </a>
-            <h2 class="ms-2 h2-primary;" style="color: #007bff;">Geografia</h2>
+            <h2 class="ms-2 h2-primary;" style="color: #007bff;" id="deckTitle"></h2>
+
         </div>
+    
+    </div>
+    <!-- conteúdo do flashcard -->
+    <div class="flashcard-container">
+        <span class="form-control flashcard-textarea" id="flashcardContent" rows="5"></span>
+        <textarea id="userAnswer" class="form-control resposta my-3" rows="3" placeholder="Digite sua resposta aqui..."></textarea>
+        <div id="resultMessage" style="display: none;"></div> 
     </div>
 
-    <div class="flashcard-container d-flex flex-column align-items-center">
-        <span id="flashcardContent" class="form-control mb-3 text-center">Qual foi a primeira capital do Brasil?</span>
-        <button class="btn btn-primary mb-3" id="toggleSide">Ver resposta</button>
+    <div class="d-flex justify-content-center align-items-center my-3">
+        <button class="btn btn-outline-primary d-flex align-items-center" id="toggleSide" disabled>
+            <span class="me-2" style="text-align: center;">
+                Ver resposta
+                 <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                    height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5" 
+                        >
+                </svg>
+            </span>
+        </button>
     </div>
 
-    <!-- Botões "Acertei!" e "Errei" inicialmente ocultos -->
-    <div class="d-flex justify-content-center mb-3">
-        <button class="btn btn-success me-3 hidden" id="acertarButton">Acertei!</button>
-        <button class="btn btn-danger hidden" id="erreiButton">Errei</button>
+    <div class="justify-content-center my-3" id="responseButtons" style="display: none;">
+        <button class="btn btn-danger me-2" id="dificilBtn">Dificil</button>
+        <button class="btn btn-info me-2" id="medianoBtn">Média</button>
+        <button class="btn btn-success" id="facilBtn">Fácil</button>
     </div>
 
     <footer class="text-center mt-4">
@@ -86,73 +103,122 @@
     </footer>
 
     <script>
-        // Elementos
+        let correctAnswer;
+        let flashcardId;
+        async function carregarDados() {
+            try {
+                const response = await fetch("../../../db/db.json");
+                if (!response.ok) {
+                    throw new Error("Erro ao carregar o arquivo JSON");
+                }
+
+                const data = await response.json();
+                console.log(data);
+                const flashcards = data.flashcards;
+                const decks = data.decks;
+
+                function getFlashcardIdFromUrl() {
+                const params = new URLSearchParams(window.location.search);
+                return params.get('flashcardId');
+                }
+
+                flashcardId = getFlashcardIdFromUrl();
+
+                if (!flashcardId) {
+                    console.error("flashcardId não fornecido na URL.");
+                    return;
+                }
+
+                
+                
+                function carregarFlashcard(flashcardId) {
+                    const flashcard = flashcards.find(fc => fc.id === parseInt(flashcardId));
+                    const deck = decks.find(d => d.id === flashcard.deckId);
+                    if (flashcard) {
+                        flashcardContent.textContent = flashcard.question;
+                        document.getElementById('deckTitle').textContent = deck.name;
+                        correctAnswer = flashcard.answer;                        
+                    } else {
+                        console.error(`Flashcard com id ${flashcardId} não encontrado.`);
+                        alert("Flashcard não encontrado.");
+                    }
+                }
+
+                carregarFlashcard(flashcardId);
+
+                function atualizarDificuldade(flashcardId, novaDificuldade) {
+                    const flashcard = flashcards.find(fc => fc.id === parseInt(flashcardId));
+                    if (flashcard) {
+                        flashcard.dificuldade = novaDificuldade;
+                        console.log(flashcard);
+                        console.log(`Dificuldade do flashcard com id ${flashcardId} atualizada para ${novaDificuldade}`);
+                        alert(`Dificuldade do flashcard atualizada para ${novaDificuldade}`);
+                    } else {
+                        console.log(`Flashcard com id ${flashcardId} não encontrado`);
+                        alert(`Erro ao alterar dificuldade do flashcard`);
+                    }
+                }
+
+                document.getElementById('dificilBtn').addEventListener('click', () => {
+                    atualizarDificuldade(flashcardId, 'Difícil');
+                });
+
+                document.getElementById('medianoBtn').addEventListener('click', () => {
+                    atualizarDificuldade(flashcardId, 'Média');
+                });
+
+                document.getElementById('facilBtn').addEventListener('click', () => {
+                    atualizarDificuldade(flashcardId, 'Fácil');
+                });
+                
+            } catch (error) {
+                console.error("Erro ao carregar dados:", error);
+            }
+        }
+
+        carregarDados();
+        
         const toggleButton = document.getElementById('toggleSide');
         const flashcardContent = document.getElementById('flashcardContent');
-        const acertarButton = document.getElementById('acertarButton');
-        const erreiButton = document.getElementById('erreiButton');
-
-        // Controle de estado
+        const responseButtons = document.getElementById('responseButtons');
+        const resultMessage = document.getElementById('resultMessage');
+        const userAnswer = document.getElementById('userAnswer');
         let isAnswerShown = false;
 
-        const answerText = "A primeira capital do Brasil foi Salvador.";
+        function verificarCampoResposta() {
+            if (userAnswer.value.trim() === "") {
+                toggleButton.disabled = true;
+            } else {
+                toggleButton.disabled = false;
+            }
+        }
 
-        // Alternar entre pergunta e resposta
+        userAnswer.addEventListener('input', verificarCampoResposta);
+
         toggleButton.addEventListener('click', () => {
             if (!isAnswerShown) {
-                // Mostrar resposta
-                flashcardContent.textContent = answerText;
-                toggleButton.textContent = "Frente";
-
-                // Tornar os botões visíveis
-                acertarButton.classList.remove('hidden');
-                erreiButton.classList.remove('hidden');
+                const userInput = userAnswer.value.trim();
+                
+                if (userInput.toLowerCase() === correctAnswer.toLowerCase()) {
+                    resultMessage.textContent = "Parabéns! Você acertou!";
+                    resultMessage.style.color = "green";
+                } else {
+                    resultMessage.textContent = "Oops! Resposta incorreta. Tente novamente!";
+                    resultMessage.style.color = "red";
+                }
+                
+                resultMessage.style.display = "block";
+                responseButtons.style.display = "flex";
+                flashcardContent.textContent = correctAnswer;
+                toggleButton.querySelector('span').textContent = "Frente";
             } else {
                 // Voltar para a pergunta
                 flashcardContent.textContent = "Qual foi a primeira capital do Brasil?";
-                toggleButton.textContent = "Ver resposta";
-
-                // Ocultar os botões
-                acertarButton.classList.add('hidden');
-                erreiButton.classList.add('hidden');
+                resultMessage.style.display = "none";
+                responseButtons.style.display = "none";
+                toggleButton.querySelector('span').textContent = "Ver resposta";
             }
             isAnswerShown = !isAnswerShown;
-        });
-
-        // Função para enviar respostas
-        const enviarResposta = async (flashcardId, isCorrect) => {
-            try {
-                const response = await fetch('http://localhost:3000/registrar-resposta', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        flashcardId,
-                        isCorrect
-                    })
-                });
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    alert(result.message);
-                } else {
-                    alert(result.error || 'Erro ao registrar a resposta.');
-                }
-            } catch (error) {
-                console.error('Erro na requisição:', error);
-                alert('Não foi possível registrar a resposta. Verifique sua conexão.');
-            }
-        };
-
-        // Eventos dos botões
-        acertarButton.addEventListener('click', () => {
-            enviarResposta(1, true); // Substituir 1 pelo ID  do flashcard
-        });
-
-        erreiButton.addEventListener('click', () => {
-            enviarResposta(1, false); // Substituir 1 pelo ID  do flashcard
         });
     </script>
 </body>
