@@ -80,20 +80,6 @@
       "description": "Primeira Guerra, Revolução Industrial, Guerra dos Canudos.",
       "userId": 2,
       "flashcards": []
-    },
-    {
-      "id": 7,
-      "name": "Novo Deck",
-      "description": "Descrição do Novo Deck",
-      "userId": 1,
-      "flashcards": []
-    },
-    {
-      "id": 8,
-      "name": "testeee",
-      "description": "descrição testee",
-      "userId": 1,
-      "flashcards": []
     }
   ],
   "answers": [
@@ -133,5 +119,44 @@
         "quantidade": 0
       }
     }
+  ],
+  "botoes": [
+    {
+      "nome": "Filosofia",
+      "link": "modulos/decks/deck-sub-baralho.html",
+      "cores": {
+        "red": 18,
+        "blue": 20,
+        "green": 15
+      }
+    },
+    {
+      "nome": "Matemática",
+      "link": "modulos/decks/deck-sub-baralho.html",
+      "cores": {
+        "red": 30,
+        "blue": 12,
+        "green": 4
+      }
+    },
+    {
+      "nome": "Geografia",
+      "link": "modulos/decks/deck-sub-baralho.html",
+      "cores": {
+        "red": 10,
+        "blue": 8,
+        "green": 24
+      }
+    },
+    {
+      "nome": "Inglês",
+      "link": "modulos/decks/deck-sub-baralho.html",
+      "cores": {
+        "red": 2,
+        "blue": 4,
+        "green": 35
+      }
+    }
   ]
 }
+
