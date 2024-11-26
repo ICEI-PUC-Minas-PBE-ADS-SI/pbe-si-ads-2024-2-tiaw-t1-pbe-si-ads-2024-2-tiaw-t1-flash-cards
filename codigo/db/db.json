@@ -94,6 +94,18 @@
       "userId": 2,
       "flashcardId": 2,
       "isCorrect": false
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "flashcardId": 1,
+      "isCorrect": true
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "flashcardId": 1,
+      "isCorrect": false
     }
   ],
   "perfil": [
@@ -107,8 +119,7 @@
         "quantidade": 0
       }
     }
-  ]
-{
+  ],
   "botoes": [
     {
       "nome": "Filosofia",
@@ -147,5 +158,5 @@
       }
     }
   ]
-
 }
+
