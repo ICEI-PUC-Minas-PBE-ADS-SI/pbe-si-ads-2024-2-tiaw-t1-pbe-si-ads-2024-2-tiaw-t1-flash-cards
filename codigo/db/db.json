@@ -108,46 +108,44 @@
       }
     }
   ]
-   "botoes": [
-      {
-        "id": 1,
-        "titulo": "Filosofia",
-        "link": "#filosofia",
-        "numeros": {
-          "red": 18,
-          "blue": 20,
-          "green": 15
-        }
-      },
-      {
-        "id": 2,
-        "titulo": "Matemática",
-        "link": "#matematica",
-        "numeros": {
-          "red": 30,
-          "blue": 12,
-          "green": 4
-        }
-      },
-      {
-        "id": 3,
-        "titulo": "Geografia",
-        "link": "#geografia",
-        "numeros": {
-          "red": 10,
-          "blue": 8,
-          "green": 24
-        }
-      },
-      {
-        "id": 4,
-        "titulo": "Inglês",
-        "link": "#ingles",
-        "numeros": {
-          "red": 2,
-          "blue": 4,
-          "green": 35
-        }
+{
+  "botoes": [
+    {
+      "nome": "Filosofia",
+      "link": "modulos/decks/deck-sub-baralho.html",
+      "cores": {
+        "red": 18,
+        "blue": 20,
+        "green": 15
       }
-    ]
+    },
+    {
+      "nome": "Matemática",
+      "link": "modulos/decks/deck-sub-baralho.html",
+      "cores": {
+        "red": 30,
+        "blue": 12,
+        "green": 4
+      }
+    },
+    {
+      "nome": "Geografia",
+      "link": "modulos/decks/deck-sub-baralho.html",
+      "cores": {
+        "red": 10,
+        "blue": 8,
+        "green": 24
+      }
+    },
+    {
+      "nome": "Inglês",
+      "link": "modulos/decks/deck-sub-baralho.html",
+      "cores": {
+        "red": 2,
+        "blue": 4,
+        "green": 35
+      }
+    }
+  ]
+
 }
