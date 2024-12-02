@@ -84,19 +84,54 @@ function atualizarDropdown() {
 document.addEventListener('DOMContentLoaded', atualizarDropdown);
 
 document.getElementById('bt-ok').addEventListener('click', function () {
-    const deckSelecionado = document.getElementById('deckDropdown').textContent;
-    const flashcardContent = document.getElementById('flashcardContent').value;
-    const flashcardContent2 = document.getElementById('flashcardContent2').value;
+    const deckSelecionadoNome = document.getElementById('deckDropdown').textContent;
+    const flashcardContent = document.getElementById('flashcardContent').value.trim();
+    const flashcardContent2 = document.getElementById('flashcardContent2').value.trim();
+
+    if (!deckSelecionadoNome || deckSelecionadoNome === "Selecione um Deck") {
+        alert('Por favor, selecione um deck antes de salvar o flashcard.');
+        return;
+    }
+
+    if (!flashcardContent) {
+        alert('O campo de perguntas (frente do flashcard) não pode estar vazio.');
+        return;
+    }
+
+    if (!flashcardContent2) {
+        alert('O campo de respostas (verso do flashcard) não pode estar vazio.');
+        return;
+    }
+
+    const decks = recuperarDados('decks') || [];
+    const flashcards = recuperarDados('flashcards') || [];
+
+    const deckSelecionado = decks.find(deck => deck.name === deckSelecionadoNome);
+
+    if (!deckSelecionado) {
+        alert('O deck selecionado não foi encontrado.');
+        return;
+    }
 
     const novoFlashcard = {
-        deck: deckSelecionado,
-        questions: flashcardContent,
-        answers: flashcardContent2
+        id: flashcards.length + 1,
+        question: flashcardContent,
+        answer: flashcardContent2,
+        deckId: deckSelecionado.id
     };
 
-    const flashcardsSalvos = recuperarDados('flashcards') || [];
-    flashcardsSalvos.push(novoFlashcard);
-    salvarDados('flashcards', flashcardsSalvos);
+    flashcards.push(novoFlashcard);
+    salvarDados('flashcards', flashcards);
 
-    alert('Flashcard salvo!');
+    if (!deckSelecionado.flashcards) {
+        deckSelecionado.flashcards = [];
+    }
+    deckSelecionado.flashcards.push(novoFlashcard.id);
+
+    salvarDados('decks', decks);
+
+    alert('Flashcard salvo com sucesso!');
+    document.getElementById('flashcardContent').value = '';
+    document.getElementById('flashcardContent2').value = '';
 });
+
