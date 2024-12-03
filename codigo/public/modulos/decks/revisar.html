@@ -30,13 +30,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#"
                             id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="../../assets/images/profilepicture.jpg" alt="Imagem de Perfil" class="profile-picture"
-                                id="profilePicture">
+                            <img src="../../assets/images/profilepicture.jpg" alt="Imagem de Perfil"
+                                class="profile-picture" id="profilePicture">
                             <span class="ms-2">Sua Conta</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="../perfil/perfil.html">Perfil</a></li>
-                            <li><a class="dropdown-item" href="#">Configurações</a></li>
+                            <li><a class="dropdown-item" href="../perfil/perfil.html">Configurações da Conta</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -47,7 +46,8 @@
                         <a href="pro.html" class="btn btn-warning ms-3 text-light">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-star-fill" viewBox="0 0 16 16">
-                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                             </svg>
                             Torne-se Pro!
                         </a>
@@ -59,7 +59,7 @@
 
     <div class="container mt-5">
         <div class="d-flex align-items-center mb-4 title-container">
-            <a href="index.html#sidebar" class="text-decoration-none">
+            <a href="../decks/deck-baralho.html" class="text-decoration-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-arrow-left">
                     <path fill-rule="evenodd"
@@ -69,24 +69,22 @@
             <h2 class="ms-2 h2-primary;" style="color: #007bff;" id="deckTitle"></h2>
 
         </div>
-    
+
     </div>
     <!-- conteúdo do flashcard -->
     <div class="flashcard-container">
         <span class="form-control flashcard-textarea" id="flashcardContent" rows="5"></span>
-        <textarea id="userAnswer" class="form-control resposta my-3" rows="3" placeholder="Digite sua resposta aqui..."></textarea>
-        <div id="resultMessage" style="display: none;"></div> 
+        <div id="resultMessage" style="display: none;"></div>
     </div>
 
     <div class="d-flex justify-content-center align-items-center my-3">
-        <button class="btn btn-outline-primary d-flex align-items-center" id="toggleSide" disabled>
+        <button class="btn btn-outline-primary d-flex align-items-center" id="showanswer">
             <span class="me-2" style="text-align: center;">
                 Ver resposta
-                 <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                    height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-left-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
-                        d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5" 
-                        >
+                        d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5">
                 </svg>
             </span>
         </button>
@@ -103,124 +101,118 @@
     </footer>
 
     <script>
-        let correctAnswer;
-        let flashcardId;
-        async function carregarDados() {
-            try {
-                const response = await fetch("../../../db/db.json");
-                if (!response.ok) {
-                    throw new Error("Erro ao carregar o arquivo JSON");
-                }
-
-                const data = await response.json();
-                console.log(data);
-                const flashcards = data.flashcards;
-                const decks = data.decks;
-
-                function getFlashcardIdFromUrl() {
-                const params = new URLSearchParams(window.location.search);
-                return params.get('flashcardId');
-                }
-
-                flashcardId = getFlashcardIdFromUrl();
-
-                if (!flashcardId) {
-                    console.error("flashcardId não fornecido na URL.");
-                    return;
-                }
-
-                
-                
-                function carregarFlashcard(flashcardId) {
-                    const flashcard = flashcards.find(fc => fc.id === parseInt(flashcardId));
-                    const deck = decks.find(d => d.id === flashcard.deckId);
-                    if (flashcard) {
-                        flashcardContent.textContent = flashcard.question;
-                        document.getElementById('deckTitle').textContent = deck.name;
-                        correctAnswer = flashcard.answer;                        
-                    } else {
-                        console.error(`Flashcard com id ${flashcardId} não encontrado.`);
-                        alert("Flashcard não encontrado.");
-                    }
-                }
-
-                carregarFlashcard(flashcardId);
-
-                function atualizarDificuldade(flashcardId, novaDificuldade) {
-                    const flashcard = flashcards.find(fc => fc.id === parseInt(flashcardId));
-                    if (flashcard) {
-                        flashcard.dificuldade = novaDificuldade;
-                        console.log(flashcard);
-                        console.log(`Dificuldade do flashcard com id ${flashcardId} atualizada para ${novaDificuldade}`);
-                        alert(`Dificuldade do flashcard atualizada para ${novaDificuldade}`);
-                    } else {
-                        console.log(`Flashcard com id ${flashcardId} não encontrado`);
-                        alert(`Erro ao alterar dificuldade do flashcard`);
-                    }
-                }
-
-                document.getElementById('dificilBtn').addEventListener('click', () => {
-                    atualizarDificuldade(flashcardId, 'Difícil');
-                });
-
-                document.getElementById('medianoBtn').addEventListener('click', () => {
-                    atualizarDificuldade(flashcardId, 'Média');
-                });
-
-                document.getElementById('facilBtn').addEventListener('click', () => {
-                    atualizarDificuldade(flashcardId, 'Fácil');
-                });
-                
-            } catch (error) {
-                console.error("Erro ao carregar dados:", error);
+        let currentFlashcardIndex = 0; // Índice do flashcard atual
+        let flashcards = []; // Lista de flashcards
+        const registrosDificuldade = []; // Novo array para salvar os dados de dificuldade
+    
+        // Função para carregar os flashcards do LocalStorage
+        function loadFlashcards() {
+            flashcards = JSON.parse(localStorage.getItem('flashcards')) || [];
+            if (flashcards.length === 0) {
+                document.getElementById('flashcardContent').innerHTML = 'Nenhum flashcard encontrado.';
+                document.getElementById('showanswer').style.display = 'none';
+                return;
             }
+            showFlashcard(); // Exibe o primeiro flashcard
         }
-
-        carregarDados();
-        
-        const toggleButton = document.getElementById('toggleSide');
-        const flashcardContent = document.getElementById('flashcardContent');
-        const responseButtons = document.getElementById('responseButtons');
-        const resultMessage = document.getElementById('resultMessage');
-        const userAnswer = document.getElementById('userAnswer');
-        let isAnswerShown = false;
-
-        function verificarCampoResposta() {
-            if (userAnswer.value.trim() === "") {
-                toggleButton.disabled = true;
-            } else {
-                toggleButton.disabled = false;
-            }
+    
+        // Função para exibir o flashcard atual
+        function showFlashcard() {
+            const flashcardContent = document.getElementById('flashcardContent');
+            const currentFlashcard = flashcards[currentFlashcardIndex];
+            flashcardContent.innerHTML = `<strong>Pergunta:</strong> ${currentFlashcard.question}`;
+            document.getElementById('responseButtons').style.display = 'none'; // Esconde os botões de dificuldade
+            document.getElementById('resultMessage').style.display = 'none'; // Esconde a mensagem de confirmação
         }
-
-        userAnswer.addEventListener('input', verificarCampoResposta);
-
-        toggleButton.addEventListener('click', () => {
-            if (!isAnswerShown) {
-                const userInput = userAnswer.value.trim();
-                
-                if (userInput.toLowerCase() === correctAnswer.toLowerCase()) {
-                    resultMessage.textContent = "Parabéns! Você acertou!";
-                    resultMessage.style.color = "green";
-                } else {
-                    resultMessage.textContent = "Oops! Resposta incorreta. Tente novamente!";
-                    resultMessage.style.color = "red";
-                }
-                
-                resultMessage.style.display = "block";
-                responseButtons.style.display = "flex";
-                flashcardContent.textContent = correctAnswer;
-                toggleButton.querySelector('span').textContent = "Frente";
-            } else {
-                // Voltar para a pergunta
-                flashcardContent.textContent = "Qual foi a primeira capital do Brasil?";
-                resultMessage.style.display = "none";
-                responseButtons.style.display = "none";
-                toggleButton.querySelector('span').textContent = "Ver resposta";
+    
+        // Função para mostrar a resposta do flashcard atual
+        function showAnswer() {
+            const flashcardContent = document.getElementById('flashcardContent');
+            const currentFlashcard = flashcards[currentFlashcardIndex];
+            flashcardContent.innerHTML = `<strong>Resposta:</strong> ${currentFlashcard.answer}`;
+            document.getElementById('responseButtons').style.display = 'flex'; // Mostra os botões de dificuldade
+        }
+    
+        // Função para registrar a dificuldade e avançar
+        function registerDifficulty(level) {
+            const currentFlashcard = flashcards[currentFlashcardIndex];
+            const record = {
+                flashcardId: currentFlashcard.id, // ID do flashcard
+                deckId: currentFlashcard.deckId, // ID do deck
+                difficulty: level // Dificuldade selecionada
+            };
+    
+            registrosDificuldade.push(record); // Salva no array
+            localStorage.setItem('registrosDificuldade', JSON.stringify(registrosDificuldade)); // Salva no LocalStorage
+    
+            showConfirmationMessage(`Registrado como ${level.charAt(0).toUpperCase() + level.slice(1)}`);
+            nextFlashcard(); // Avança para o próximo flashcard
+        }
+    
+        // Função para avançar para o próximo flashcard
+        function nextFlashcard() {
+            currentFlashcardIndex++;
+            if (currentFlashcardIndex >= flashcards.length) {
+                currentFlashcardIndex = 0; // Volta ao início
             }
-            isAnswerShown = !isAnswerShown;
+            showFlashcard();
+        }
+    
+        // Função para exibir mensagem de confirmação
+        function showConfirmationMessage(message) {
+            const resultMessage = document.getElementById('resultMessage');
+            resultMessage.innerHTML = message;
+            resultMessage.style.display = 'block';
+            resultMessage.style.color = 'green';
+    
+            // Remove a mensagem automaticamente após 2 segundos
+            setTimeout(() => {
+                resultMessage.style.display = 'none';
+            }, 2000);
+        }
+    
+        // Eventos dos botões
+        document.getElementById('showanswer').addEventListener('click', showAnswer);
+        document.getElementById('dificilBtn').addEventListener('click', () => registerDifficulty('dificil'));
+        document.getElementById('medianoBtn').addEventListener('click', () => registerDifficulty('medio'));
+        document.getElementById('facilBtn').addEventListener('click', () => registerDifficulty('facil'));
+    
+        // Carrega os flashcards ao iniciar a página
+        document.addEventListener('DOMContentLoaded', loadFlashcards);
+
+
+
+        //sidebar
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebarClose = document.getElementById('sidebarClose');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        sidebarClose.addEventListener('click', () => {
+            sidebar.classList.remove('active');
         });
     </script>
+    
+    <style>
+        /* Centraliza os botões */
+        #responseButtons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem; /* Espaço entre os botões */
+        }
+    
+        /* Mensagem de confirmação */
+        #resultMessage {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+    </style>
+    
+    
 </body>
 
 </html>
