@@ -12,7 +12,7 @@
   <style>
     body {
       margin: 0;
-    background: linear-gradient(135deg, #90caf9, #170790);
+      background: linear-gradient(135deg, #90caf9, #170790);
       min-height: 100vh;
     }
 
@@ -34,6 +34,7 @@
       padding-top: 70px;
       box-sizing: border-box;
     }
+
 
     #deck {
       background: #fff;
@@ -58,6 +59,7 @@
       background-color: #007bff;
       color: white;
     }
+
 
     /* Mensagem de erro */
     #error-message {
@@ -137,7 +139,7 @@
     </ul>
   </div>
 
-  <!-- Conteúdo da Tela -->
+  <!--conteúdo da tela-->
   <div class="content" id="homepage">
     <div id="deck">
       <h4>Criar Deck</h4>
@@ -150,6 +152,7 @@
         <p>Descrição:</p>
         <input type="text" id="deck-description" placeholder="Digite aqui" class="">
       </div>
+
 
       <div class="button-container mt-3">
         <button id="btn-ok">Criar</button>
@@ -165,42 +168,84 @@
     const btnOk = document.getElementById('btn-ok');
     const deckNameInput = document.getElementById('deck-name');
     const deckDescriptionInput = document.getElementById('deck-description');
+    const errorMessage = document.getElementById('error-message');
 
-    btnOk.addEventListener('click', async () => {
+    // Criar um novo deck
+    btnOk.addEventListener('click', () => {
       const newDeckName = deckNameInput.value.trim();
       const newDeckDescription = deckDescriptionInput.value.trim();
 
-      if (!newDeckName || !newDeckDescription) {
-        alert('Por favor, preencha todos os campos!');
+      if (newDeckName === '') {
+        errorMessage.textContent = 'Nome do deck não pode ser vazio!';
+        errorMessage.style.display = 'block';
         return;
       }
 
-      try {
-        const response = await fetch('http://localhost:3000/create-deck', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            name: newDeckName,
-            description: newDeckDescription
-          })
-        });
+      const existingDecks = JSON.parse(localStorage.getItem('decks')) || [];
 
-        const result = await response.json();
+      const deckExists = existingDecks.some(deck => deck.name === newDeckName);
 
-        if (response.ok) {
-          alert(result.message);
-          deckNameInput.value = '';
-          deckDescriptionInput.value = '';
-        } else {
-          alert(result.error || 'Erro ao criar o deck!');
-        }
-      } catch (error) {
-        console.error('Erro na requisição:', error);
-        alert('Não foi possível criar o deck. Verifique sua conexão.');
+      if (deckExists) {
+        errorMessage.textContent = 'Já existe um deck com esse nome!';
+        errorMessage.style.display = 'block';
+      } else {
+        errorMessage.style.display = 'none';
+
+        const newDeck = {
+          id: existingDecks.length > 0 ? existingDecks[existingDecks.length - 1].id + 1 : 1,
+          name: newDeckName,
+          description: newDeckDescription,
+          flashcards: []
+        };
+
+        existingDecks.push(newDeck);
+        localStorage.setItem('decks', JSON.stringify(existingDecks));
+
+        alert(`Deck "${newDeckName}" criado com sucesso!`);
+        deckNameInput.value = '';
+        deckDescriptionInput.value = '';
       }
     });
+
+    // Carregar e exibir decks criados
+    function displayDecks() {
+      const decks = JSON.parse(localStorage.getItem('decks')) || [];
+      const decksContainer = document.getElementById('decks-container');
+      decksContainer.innerHTML = '';
+
+      decks.forEach(deck => {
+        const deckElement = document.createElement('div');
+        deckElement.className = 'deck';
+        deckElement.innerHTML = `
+      <h3>${deck.name}</h3>
+      <p>${deck.description}</p>
+      <p>Flashcards: ${deck.flashcards.length}</p>
+    `;
+        decksContainer.appendChild(deckElement);
+      });
+    }
+
+    // Atualizar a exibição dos decks ao carregar a página
+    document.addEventListener('DOMContentLoaded', displayDecks);
+
+
+
+
+
+
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebarClose = document.getElementById('sidebarClose');
+
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+
+    sidebarClose.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+    });
+
+
   </script>
 </body>
 
