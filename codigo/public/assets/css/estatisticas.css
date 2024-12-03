@@ -5,25 +5,60 @@ body {
     background-color: #f4f4f4;
 }
 
-header {
-    background-color: #4a90e2;
-    color: white;
-    padding: 10px;
-    text-align: center;
+.navbar {
+    background: linear-gradient(to right, #4db8ff, #1a75ff);
 }
 
-header nav h1 {
-    margin: 0;
+.upgrade-button {
+    background-color: gold;
+    border-radius: 20px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
 }
 
-header nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    margin-top: 5px;
-    display: inline-block;
+.user-icon {
+    font-size: 24px;
 }
 
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #b84e4e;
+    color: rgb(78, 157, 253);
+    transition: 0.3s;
+    padding: 15px;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar-close {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.profile-picture {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+   
+.sidebar a {
+    text-decoration: none; 
+    font-size: 1.5rem; 
+    color: rgb(84, 165, 241); 
+}
 main {
     padding: 20px;
 }
