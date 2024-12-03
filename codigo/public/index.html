@@ -1,224 +1,146 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/homepage.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Home</title>
 
-    <style></style>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/homepage.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title>Home</title>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container-fluid">
-        <button class="navbar-toggler me-2" type="button" id="sidebarToggle">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  <style></style>
+</head>
 
-        <a class="navbar-brand d-flex align-items-center" href="#">
-          <img src="assets/images/Logo lethe.png" alt="Logo" width="100" />
-        </a>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler me-2" type="button" id="sidebarToggle">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto align-items-center">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle d-flex align-items-center text-white"
-                href="#"
-                id="userDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img
-                  src="assets/images/profilepicture.jpg"
-                  alt="Imagem de Perfil"
-                  class="profile-picture"
-                  id="profilePicture"
-                />
-                <span class="ms-2">Sua Conta</span>
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                aria-labelledby="userDropdown"
-              >
-                <li>
-                  <a class="dropdown-item" href="./modulos/perfil/perfil.html"
-                    >Perfil</a
-                  >
-                </li>
-                <li><a class="dropdown-item" href="index.html">Configurações</a></li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li><a class="dropdown-item" href="#"  id="logoutButton">Sair</a></li>
-              </ul>
-            </li>
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="assets/images/Logo lethe.png" alt="Logo" width="100" />
+      </a>
 
-            <li class="nav-item">
-              <a
-                href="./modulos/pro/pro.html"
-                class="btn btn-warning ms-3 text-light"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-star-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
-                  />
-                </svg>
-                Torne-se Pro!
-              </a>
-            </li>
-          </ul>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#" id="userDropdown"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="assets/images/profilepicture.jpg" alt="Imagem de Perfil" class="profile-picture"
+                id="profilePicture" />
+              <span class="ms-2">Sua Conta</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <li>
+                <a class="dropdown-item" href="./modulos/perfil/perfil.html">Configurações da Conta</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li><a class="dropdown-item" href="#" id="logoutButton">Sair</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="./modulos/pro/pro.html" class="btn btn-warning ms-3 text-light">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+              Torne-se Pro!
+            </a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <div class="sidebar" id="sidebar" style="background-color: white">
-      <div class="d-flex justify-content-between align-items-center">
-        <h5 style="font-size: 1.75rem; font-weight: bold; margin: 0">Menu</h5>
-        <span class="sidebar-close" id="sidebarClose">&times;</span>
-      </div>
-      <ul
-        class="mt-3"
-        style="list-style-type: none; padding: 0; line-height: 1.6"
-      >
-        <li style="padding: 10px 0; border-bottom: 1px solid lightgray">
-          <a
-            href="./modulos/decks/criar-flashcard.html"
-            style="
+  <div class="sidebar" id="sidebar" style="background-color: white">
+    <div class="d-flex justify-content-between align-items-center">
+      <h5 style="font-size: 1.75rem; font-weight: bold; margin: 0">Menu</h5>
+      <span class="sidebar-close" id="sidebarClose">&times;</span>
+    </div>
+    <ul class="mt-3" style="list-style-type: none; padding: 0; line-height: 1.6">
+      <li style="padding: 10px 0; border-bottom: 1px solid lightgray">
+        <a href="./modulos/decks/criar-flashcard.html" style="
               color: rgb(84, 165, 241);
               text-decoration: none;
               font-size: 1.3rem;
-            "
-            >Criar Flashcards</a
-          >
-        </li>
-        <li style="padding: 10px 0; border-bottom: 1px solid lightgray">
-          <a
-            href="./modulos/decks/deck-baralho.html"
-            style="
+            ">Criar Flashcards</a>
+      </li>
+      <li style="padding: 10px 0; border-bottom: 1px solid lightgray">
+        <a href="./modulos/decks/deck-baralho.html" style="
               color: rgb(84, 165, 241);
               text-decoration: none;
               font-size: 1.3rem;
-            "
-            >Biblioteca de Decks</a
-          >
-        </li>
+            ">Biblioteca de Decks</a>
+      </li>
 
-        <li style="padding: 10px 0; border-bottom: 1px solid lightgray">
-          <a
-            href="./modulos/pro/pro.html"
-            style="
+      <li style="padding: 10px 0; border-bottom: 1px solid lightgray">
+        <a href="./modulos/pro/pro.html" style="
               color: rgb(240, 236, 43);
               text-decoration: none;
               font-size: 1.3rem;
-            "
-            >Pro</a
-          >
-        </li>
-        <li style="padding: 10px 0; border-bottom: 1px solid lightgray">
-          <a
-            href="./modulos/estatisticas/estatisticas.html"
-            style="
+            ">Pro</a>
+      </li>
+      <li style="padding: 10px 0; border-bottom: 1px solid lightgray">
+        <a href="./modulos/estatisticas/estatisticas.html" style="
               color: rgb(84, 165, 241);
               text-decoration: none;
               font-size: 1.3rem;
-            "
-            >Estatísticas</a
-          >
-        </li>
-      </ul>
-    </div>
+            ">Estatísticas</a>
+      </li>
+    </ul>
+  </div>
 
-    <div class="content" id="homepage">
-      <link rel="stylesheet" href="assets/css/homepage.css" />
-      <div class="deck-column">
-        <h3>Seus Decks:</h3>
-        <div id="deck-list"></div>
+  <div class="content" id="homepage">
+    <link rel="stylesheet" href="assets/css/homepage.css" />
+    <div class="deck-column">
+      <h3>Seus Decks:</h3>
+      <div id="deck-list"></div>
       <div class="banner-right">
-        <img
-          src="assets/images/ML.jpg"
-          alt="Banner Lateral"
-          style="width: 100%; height: auto"
-        />
+        <img src="assets/images/ML.jpg" alt="Banner Lateral" style="width: 100%; height: auto" />
       </div>
     </div>
 
     <div class="dropdown position-fixed" style="bottom: 20px; right: 20px">
-      <button
-        class="btn btn-primary dropdown-toggle btn-circle"
-        type="button"
-        id="dropdownMenuButton"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
+      <button class="btn btn-primary dropdown-toggle btn-circle" type="button" id="dropdownMenuButton"
+        data-bs-toggle="dropdown" aria-expanded="false">
         +
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <li>
-          <a class="dropdown-item" href="./modulos/decks/criar-flashcard.html"
-            >Criar Flashcard</a
-          >
+          <a class="dropdown-item" href="./modulos/decks/criar-flashcard.html">Criar Flashcard</a>
         </li>
         <li>
-          <a class="dropdown-item" href="./modulos/decks/criar-deck.html"
-            >Criar Deck</a
-          >
+          <a class="dropdown-item" href="./modulos/decks/criar-deck.html">Criar Deck</a>
         </li>
         <li>
-          <a
-            class="dropdown-item"
-            href="#"
-            data-bs-toggle="modal"
-            data-bs-target="#compartilharDeckModal"
-            >Compartilhar Deck</a
-          >
+          <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#compartilharDeckModal">Compartilhar
+            Deck</a>
         </li>
       </ul>
     </div>
 
-    <div
-      class="modal fade"
-      id="compartilharDeckModal"
-      tabindex="-1"
-      aria-labelledby="compartilharDeckLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="compartilharDeckModal" tabindex="-1" aria-labelledby="compartilharDeckLabel"
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header justify-content-center">
             <h3 class="modal-title" id="compartilharDeckLabel">
               Compartilhar Deck
             </h3>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
           <div class="modal-body">
             <form>
               <div class="mb-3">
                 <label for="deckSelect" class="form-label">Deck: </label>
-                <select
-                  id="deckSelect"
-                  class="form-select custom-select-wrapper"
-                >
+                <select id="deckSelect" class="form-select custom-select-wrapper">
                   <option value="geografia">Geografia</option>
                   <option value="matematica">Matemática</option>
                   <option value="prova-ciencias">Prova Ciências</option>
@@ -228,22 +150,15 @@
               </div>
 
               <div class="mb-3">
-                <label for="messageInput" class="form-label"
-                  >Descrição do deck:
+                <label for="messageInput" class="form-label">Descrição do deck:
                 </label>
-                <input
-                  type="text"
-                  class="form-control custom-input"
-                  id="messageInput"
-                  placeholder="Digite aqui"
-                  style="
+                <input type="text" class="form-control custom-input" id="messageInput" placeholder="Digite aqui" style="
                     width: 100%;
                     height: 40px;
                     border-radius: 15px;
                     border-color: black;
                     outline: none;
-                  "
-                />
+                  " />
               </div>
             </form>
           </div>
@@ -267,119 +182,90 @@
       </div>
     </footer>
 
-    <script type="module">
-    import { authLogin } from "/codigo/main.js";
-    import { initializeLocalStorage } from "/codigo/main.js";
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const deckList = document.getElementById("deck-list");
 
-      authLogin();
+        // Função para renderizar a lista de decks
+        function renderDeckList() {
+          // Recupera os dados do LocalStorage
+          const decks = JSON.parse(localStorage.getItem("decks")) || [];
+          const registrosDificuldade = JSON.parse(localStorage.getItem("registrosDificuldade")) || [];
 
-      const sidebar = document.getElementById("sidebar");
-      const sidebarToggle = document.getElementById("sidebarToggle");
-      const sidebarClose = document.getElementById("sidebarClose");
-      const profilePicture = document.getElementById("profilePicture");
-      const profileUpload = document.getElementById("profileUpload");
+          // Limpa a lista de decks
+          deckList.innerHTML = "";
 
-      sidebarToggle.addEventListener("click", () => {
-        sidebar.classList.toggle("active");
-      });
-
-      sidebarClose.addEventListener("click", () => {
-        sidebar.classList.remove("active");
-      });
-
-      const loggedUserId = localStorage.getItem("loggedUserId");
-
-      async function fetchDecks() {
-        try {
-      const storedData = localStorage.getItem("appData");
-      if (!storedData) {
-        console.error("Dados não encontrados no localStorage.");
-        return;
-      }
-
-      const appData = JSON.parse(storedData);
-      console.log(appData);
-      
-
-      const currentUser = appData.users.find((user) => user.id === Number(loggedUserId));
-
-          if (!currentUser) {
-            console.error("Usuário não encontrado");
+          if (decks.length === 0) {
+            // Exibe mensagem se não houver decks
+            const emptyMessage = document.createElement("div");
+            emptyMessage.className = "alert alert-secondary text-center";
+            emptyMessage.textContent = "Nenhum deck disponível. Crie um novo deck para começar!";
+            deckList.appendChild(emptyMessage);
             return;
           }
-          
-      const userDecks = appData.decks.filter((deck) =>
-        currentUser.decks.includes(deck.id)
-      );
 
-      console.log(userDecks);
-      
+          // Cria a lista de decks
+          decks.forEach(deck => {
+            // Conta os flashcards por nível de dificuldade
+            const dificilCount = registrosDificuldade.filter(
+              reg => reg.deckId === deck.id && reg.difficulty === "dificil"
+            ).length;
+            const medioCount = registrosDificuldade.filter(
+              reg => reg.deckId === deck.id && reg.difficulty === "medio"
+            ).length;
+            const facilCount = registrosDificuldade.filter(
+              reg => reg.deckId === deck.id && reg.difficulty === "facil"
+            ).length;
 
-          renderDecks(userDecks);
-        } catch (error) {
-          console.error("Erro ao carregar decks:", error);
+            // Cria o elemento do deck
+            const deckCard = document.createElement("div");
+            deckCard.className = "card p-3 mb-3";
+
+            // Define os estilos diretamente
+            deckCard.style.border = "2px solid #007bff";
+            deckCard.style.color = "#007bff";
+            deckCard.style.margin = "15px 0";
+            deckCard.style.borderRadius = "10px";
+            deckCard.style.boxShadow = "0 4px 6px rgba(135, 206, 250, 0.3)";
+            deckCard.style.display = "flex";
+            deckCard.style.flexDirection = "column";
+            deckCard.style.gap = "10px";
+
+            // Adiciona o conteúdo do card
+            deckCard.innerHTML = `
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 style="font-weight: bold;">${deck.name}ㅤㅤ</h5>
+                    <div>
+                        <span class="badge bg-danger">Difícil: ${dificilCount}</span>ㅤ
+                        <span class="badge bg-primary">Médio: ${medioCount}</span>ㅤ
+                        <span class="badge bg-success">Fácil: ${facilCount}</span>
+                    </div>
+                </div>
+            `;
+
+            deckList.appendChild(deckCard);
+          });
         }
-      }
 
-      function logout() {        
-        localStorage.removeItem("loggedUserId");
-        console.log("Usuário deslogado");
-        window.location.href = "./modulos/login/login.html";
-      }
+        // Chama a função para renderizar a lista ao carregar a página
+        renderDeckList();
+      });
 
-      function renderDecks(decks) {       
-        const deckListContainer = document.getElementById("deck-list");    
-        deckListContainer.innerHTML = "";     
-        if (decks.length === 0) {
-          const message = document.createElement('p');
-          message.textContent = "Você ainda não possui decks!";
-          message.style.color = "gray";
-          message.style.textAlign = "center";
-          deckListContainer.appendChild(message);
-          return;
-        }
+      //sidebar
+      const sidebar = document.getElementById('sidebar');
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const sidebarClose = document.getElementById('sidebarClose');
 
-        decks.forEach((deck) => {
-          const deckContainer = document.createElement("div");
-          deckContainer.className = "deck-container";
+      sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+      });
 
-          const deckBar = document.createElement("a");
-          deckBar.href = "modulos/decks/deck-sub-baralho.html";
-          deckBar.className = "deck-bar";
-          deckBar.textContent = deck.name;
-
-          const deckNumbers = document.createElement("div");
-          deckNumbers.className = "deck-numbers";
-
-          const redSpan = document.createElement("span");
-          redSpan.className = "red";
-          redSpan.textContent = deck.flashcards.length;
-
-          const blueSpan = document.createElement("span");
-          blueSpan.className = "blue";
-          blueSpan.textContent = Math.floor(Math.random() * 10);
-
-          const greenSpan = document.createElement("span");
-          greenSpan.className = "green";
-          greenSpan.textContent = Math.floor(Math.random() * 10);
-
-          deckNumbers.appendChild(redSpan);
-          deckNumbers.appendChild(blueSpan);
-          deckNumbers.appendChild(greenSpan);
-
-          deckContainer.appendChild(deckBar);
-          deckContainer.appendChild(deckNumbers);
-
-          deckListContainer.appendChild(deckContainer);
-        });
-      }
-
-      document.getElementById("logoutButton").addEventListener("click", logout);
+      sidebarClose.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+      });
 
 
-      initializeLocalStorage().then(() => {
-        fetchDecks();
-      });    
-  </script>
-  </body>
+    </script>
+</body>
+
 </html>
