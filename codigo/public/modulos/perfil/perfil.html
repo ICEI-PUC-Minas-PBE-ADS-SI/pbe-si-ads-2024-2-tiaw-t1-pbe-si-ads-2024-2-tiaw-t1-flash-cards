@@ -68,10 +68,8 @@
                 <a href="deck-baralho.html" style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">
                     Biblioteca de Decks</a>
             </li>
-            <li style="padding: 10px 0; border-bottom: 1px solid lightgray; ">
-                <a href="../pro/pro.html"
-                    style="color: rgb(240, 236, 43); text-decoration: none; font-size: 1.3rem;">Pro</a>
-            </li>
+            <li style="padding: 10px 0; border-bottom: 1px solid lightgray; "><a href="../pro/pro.html"
+                    style="color: rgb(240, 236, 43); text-decoration: none; font-size: 1.3rem;">Pro</a></li>
             <li style="padding: 10px 0; border-bottom: 1px solid lightgray;">
                 <a href="../estatisticas/estatisticas.html"
                     style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">Estatísticas</a>
@@ -147,90 +145,92 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Exibir o nome do usuário no topo
-            const userName = localStorage.getItem('userName') || 'Usuário';
-            document.getElementById('userName').textContent = `Olá, bem-vindo(a) ${userName}!`;
+            // Carregar os dados do Local Storage
+            const appData = JSON.parse(localStorage.getItem('appData')) || { users: [] };
+            const loggedInUserId = localStorage.getItem('loggedUserId');
 
-            // Carregar decks e flashcards do Local Storage
-            const decks = JSON.parse(localStorage.getItem('decks')) || [];
-            const flashcards = JSON.parse(localStorage.getItem('flashcards')) || [];
-
-            // Contar decks e flashcards
-            const numDecks = decks.length;
-            const numFlashcards = flashcards.length;
-
-            // Atualizar os números na tela
-            document.getElementById('numDecks').textContent = numDecks;
-            document.getElementById('numFlashcards').textContent = numFlashcards;
-
-            // (Opcional) Atualizar o número de decks compartilhados, se aplicável
-            const numSharedDecks = decks.filter(deck => deck.shared === true).length || 0;
-            document.getElementById('numSharedDecks').textContent = numSharedDecks;
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const users = JSON.parse(localStorage.getItem('users')) || [];
-            const loggedInUserId = localStorage.getItem('loggedInUserId');
-            const loggedInUser = users.find(user => user.id == loggedInUserId);
-
-            // Verifica se o usuário está logado
-            if (!loggedInUser) {
+            // Verificar se o usuário está logado
+            if (!loggedInUserId || !appData.users.some(user => user.id == loggedInUserId)) {
                 alert('Usuário não logado!');
+                window.location.href = './login.html'; // Redireciona para a página de login
                 return;
             }
 
-            // Manipulação do formulário de alteração de e-mail
+            // Recuperar o usuário logado
+            const loggedInUser = appData.users.find(user => user.id == loggedInUserId);
+
+            // Exibir o nome do usuário no topo
+            document.getElementById('userName').textContent = `Olá, bem-vindo(a) ${loggedInUser.name}!`;
+
+            // Buscar todos os decks e flashcards do Local Storage
+            const decks = JSON.parse(localStorage.getItem('decks')) || [];
+            const flashcards = JSON.parse(localStorage.getItem('flashcards')) || [];
+
+            // Contar todos os decks e flashcards
+            const numDecks = decks.length;
+            const numFlashcards = flashcards.length;
+            const numSharedDecks = decks.filter(deck => deck.shared).length;
+
+            // Atualizar os valores na interface
+            document.getElementById('numDecks').textContent = numDecks;
+            document.getElementById('numFlashcards').textContent = numFlashcards;
+            document.getElementById('numSharedDecks').textContent = numSharedDecks;
+
+            // Configuração de alteração de e-mail
             const emailForm = document.getElementById('emailForm');
-            emailForm.addEventListener('submit', function (event) {
-                event.preventDefault(); // Impede o envio do formulário
+            emailForm.addEventListener('submit', (event) => {
+                event.preventDefault();
 
                 const currentPasswordEmail = document.getElementById('currentPasswordEmail').value;
                 const newEmail = document.getElementById('newEmail').value;
 
-                // Verifica se a senha atual está correta
+                // Verificar se a senha atual está correta
                 if (currentPasswordEmail !== loggedInUser.password) {
-                    alert('Senha atual incorreta.');
+                    alert('Senha atual incorreta!');
                     return;
                 }
 
-                // Atualiza o e-mail do usuário
+                // Atualizar o e-mail do usuário
                 loggedInUser.email = newEmail;
-                localStorage.setItem('users', JSON.stringify(users)); // Salva os dados atualizados
+
+                // Salvar as alterações no Local Storage
+                localStorage.setItem('appData', JSON.stringify(appData));
                 alert('E-mail alterado com sucesso!');
             });
 
-            // Manipulação do formulário de alteração de senha
+            // Configuração de alteração de senha
             const passwordForm = document.getElementById('passwordForm');
-            passwordForm.addEventListener('submit', function (event) {
-                event.preventDefault(); // Impede o envio do formulário
+            passwordForm.addEventListener('submit', (event) => {
+                event.preventDefault();
 
                 const currentPassword = document.getElementById('currentPassword').value;
                 const newPassword = document.getElementById('newPassword').value;
                 const confirmNewPassword = document.getElementById('confirmNewPassword').value;
 
-                // Verifica se a senha atual está correta
+                // Verificar se a senha atual está correta
                 if (currentPassword !== loggedInUser.password) {
-                    alert('Senha atual incorreta.');
+                    alert('Senha atual incorreta!');
                     return;
                 }
 
-                // Verifica se a nova senha e a confirmação da nova senha são iguais
+                // Verificar se as novas senhas coincidem
                 if (newPassword !== confirmNewPassword) {
-                    alert('A nova senha e a confirmação da nova senha não coincidem.');
+                    alert('As novas senhas não coincidem!');
                     return;
                 }
 
-                // Atualiza a senha do usuário
+                // Atualizar a senha do usuário
                 loggedInUser.password = newPassword;
-                localStorage.setItem('users', JSON.stringify(users)); // Salva os dados atualizados
+
+                // Salvar as alterações no Local Storage
+                localStorage.setItem('appData', JSON.stringify(appData));
                 alert('Senha alterada com sucesso!');
             });
         });
 
 
-    </script>
 
-    <script src="../../assets/js/configuracoes.js"></script>
+    </script>
 </body>
 
 </html>
