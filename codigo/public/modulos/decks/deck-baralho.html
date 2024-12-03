@@ -11,12 +11,15 @@
 
     <style>
         .card {
-            background-color: #e7f1ff; /* Azul claro */
-            border: 1px solid #84c0ff; /* Azul mais escuro */
+            background-color: #e7f1ff;
+            /* Azul claro */
+            border: 1px solid #84c0ff;
+            /* Azul mais escuro */
         }
 
         .card-title {
-            color: #007bff; /* Azul escuro para o título */
+            color: #007bff;
+            /* Azul escuro para o título */
         }
 
         .search-container {
@@ -35,12 +38,14 @@
 
         .title-container svg {
             margin-right: 10px;
-            color: #007bff; /* Azul para a seta */
+            color: #007bff;
+            /* Azul para a seta */
             cursor: pointer;
         }
 
         h2 {
-            color: #007bff; /* Azul para o título */
+            color: #007bff;
+            /* Azul para o título */
         }
     </style>
 </head>
@@ -59,16 +64,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#" id="userDropdown"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="../../assets/images/profilepicture.jpg" alt="Imagem de Perfil" class="profile-picture"
-                                id="profilePicture">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#"
+                            id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../../assets/images/profilepicture.jpg" alt="Imagem de Perfil"
+                                class="profile-picture" id="profilePicture">
                             <span class="ms-2">Sua Conta</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                             <li><a class="dropdown-item" href="../perfil/perfil.html">Perfil</a></li>
                             <li><a class="dropdown-item" href="#">Configurações</a></li>
-                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><a class="dropdown-item" href="#">Sair</a></li>
                         </ul>
                     </li>
@@ -86,18 +93,47 @@
         </div>
     </nav>
 
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="d-flex justify-content-between align-items-center">
+            <h5 style="font-size: 1.75rem; font-weight: bold; margin: 0;">Menu</h5>
+            <span class="sidebar-close" id="sidebarClose">&times;</span>
+        </div>
+        <ul class="mt-3" style="list-style-type: none; padding: 0; line-height: 1.6;">
+            <li style="padding: 10px 0;border-bottom: 1px solid rgb(255, 255, 255);">
+                <a href="criar-flashcard.html"
+                    style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">Criar
+                    Flashcards</a>
+            </li>
+            <li style="padding: 10px 0;border-bottom: 1px solid lightgray;">
+                <a href="deck-baralho.html"
+                    style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">Biblioteca de Decks</a>
+            </li>
+            <li style="padding: 10px 0; border-bottom: 1px solid lightgray;">
+                <a href="../pro/pro.html"
+                    style="color: rgb(240, 236, 43); text-decoration: none; font-size: 1.3rem;">Pro</a>
+            </li>
+            <li style="padding: 10px 0; border-bottom: 1px solid lightgray;">
+                <a href="../estatisticas/estatisticas.html"
+                    style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">Estatísticas</a>
+            </li>
+        </ul>
+    </div>
+
     <!-- Seção Biblioteca de Decks -->
     <div class="container mt-4">
         <div class="d-flex align-items-center mb-4 title-container">
             <a href="../../index.html" class="text-decoration-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-left">
                     <path fill-rule="evenodd"
                         d="M12.14 1.293a1 1 0 0 1 0 1.414L5.414 8l6.726 5.293a1 1 0 0 1-1.268 1.578l-7.5-6a1 1 0 0 1 0-1.578l7.5-6a1 1 0 0 1 1.268 0z" />
                 </svg>
             </a>
             <h2 class="ms-2">Biblioteca de Decks</h2>
             <div class="search-container ms-auto">
-                <input type="text" class="form-control" id="searchInput" placeholder="Pesquise sua pasta de Decks" aria-label="Pesquisar" onkeyup="filterDecks()">
+                <input type="text" class="form-control" id="searchInput" placeholder="Pesquise sua pasta de Decks"
+                    aria-label="Pesquisar" onkeyup="filterDecks()">
             </div>
         </div>
         <div class="row" id="deckContainer">
@@ -105,8 +141,8 @@
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Células</h5>
-                        <p class="card-text">Descrição sobre organelas e suas funções.</p>
+                        <h5 class="deck-title">Células</h5>
+                        <p class="deck-description">Descrição sobre organelas e suas funções.</p>
                         <a href="revisar.html?flashcardId=1" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
@@ -114,8 +150,8 @@
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Matemática</h5>
-                        <p class="card-text">Equação de Primeiro grau, fatoração</p>
+                        <h5 class="deck-title">Matemática</h5>
+                        <p class="deck-description">Equação de Primeiro grau, fatoração</p>
                         <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
@@ -123,8 +159,8 @@
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Ecologia</h5>
-                        <p class="card-text">Descrição sobre ecossistemas e interações.</p>
+                        <h5 class="deck-title">Ecologia</h5>
+                        <p class="deck-description">Descrição sobre ecossistemas e interações.</p>
                         <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
@@ -132,8 +168,8 @@
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Geografia</h5>
-                        <p class="card-text">Mapas, Tipos de vegetação, Cidades Verdes</p>
+                        <h5 class="deck-title">Geografia</h5>
+                        <p class="deck-description">Mapas, Tipos de vegetação, Cidades Verdes</p>
                         <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
@@ -141,8 +177,8 @@
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">BIOLOGIA</h5>
-                        <p class="card-text">Descrição sobre a teoria da evolução, Anatomia, Plantas.</p>
+                        <h5 class="deck-title">BIOLOGIA</h5>
+                        <p class="deck-description">Descrição sobre a teoria da evolução, Anatomia, Plantas.</p>
                         <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
@@ -150,8 +186,8 @@
             <div class="col-md-4 mb-4 deck-item">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">História</h5>
-                        <p class="card-text">Primeira Guerra, Revolução Industrial, Guerra dos Canudos.</p>
+                        <h5 class="deck-title">História</h5>
+                        <p class="deck-description">Primeira Guerra, Revolução Industrial, Guerra dos Canudos.</p>
                         <a href="deck-sub-baralho.html" class="btn btn-primary">Ver Deck</a>
                     </div>
                 </div>
@@ -160,13 +196,37 @@
     </div>
 
     <script>
+        // Função para carregar os decks do LocalStorage e criar os cards dinamicamente
+        function loadDecks() {
+            const deckContainer = document.getElementById('deckContainer');
+            deckContainer.innerHTML = ''; // Limpa os decks existentes
+
+            // Recupera os decks do LocalStorage
+            const decks = JSON.parse(localStorage.getItem('decks')) || [];
+
+            decks.forEach(deck => {
+                const deckCard = `
+                    <div class="col-md-4 mb-4 deck-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="deck-title">${deck.name}</h5>
+                                <p class="deck-description">${deck.description}</p>
+                                <a href="revisar.html?deckId=${deck.id}" class="btn btn-primary">Ver Deck</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                deckContainer.insertAdjacentHTML('beforeend', deckCard);
+            });
+        }
+
         // Função para filtrar os decks conforme a pesquisa
         function filterDecks() {
             const searchInput = document.getElementById('searchInput').value.toLowerCase();
             const deckItems = document.querySelectorAll('.deck-item');
 
             deckItems.forEach(item => {
-                const title = item.querySelector('.card-title').textContent.toLowerCase();
+                const title = item.querySelector('.deck-title').textContent.toLowerCase();
                 if (title.includes(searchInput)) {
                     item.style.display = 'block'; // Exibe o item
                 } else {
@@ -174,6 +234,22 @@
                 }
             });
         }
+
+        // Evento para carregar os decks ao carregar a página
+        document.addEventListener('DOMContentLoaded', loadDecks);
+
+
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebarClose = document.getElementById('sidebarClose');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        sidebarClose.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+        });
     </script>
 </body>
 
