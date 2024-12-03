@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/telacriarflashcard.css">
+    <link rel="stylesheet" href="../../assets/css/criarflashcard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -106,27 +106,12 @@
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="deckDropdown"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    Geografia
+                    Selecione um Deck
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="deckDropdown">
-                    <li><a class="dropdown-item" href="#" data-id="1">Células</a></li>
-                    <li><a class="dropdown-item" href="#" data-id="2">Matemática</a></li>
-                    <li><a class="dropdown-item" href="#" data-id="3">Inglês</a></li>
-                    <li><a class="dropdown-item" href="#" data-id="4">Ecologia</a></li>
-                    <li><a class="dropdown-item" href="#" data-id="5">Geografia</a></li>
-                    <li><a class="dropdown-item" href="#" data-id="6">BIOLOGIA</a></li>
-                    <li><a class="dropdown-item" href="#" data-id="7">História</a></li>
+
                 </ul>
-                
-            </div>
-        </div>
-        <div class="sub-deck">
-            <h6 class="me-2">Sub-Deck:</h6>
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="subDeckDropdown"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Selecione um Sub-Deck
-                </button>
+
             </div>
         </div>
 
@@ -144,8 +129,6 @@
             <textarea class="form-control flashcard-textarea mt-3" id="flashcardContent" rows="5"
                 placeholder="Insira o conteúdo do flashcard aqui..."></textarea>
 
-            <!--área de inserir imagem-->
-            <input type="file" id="inputImage" style="display: none;">
         </div>
 
         <div class="flashcard-container">
