@@ -7,7 +7,7 @@ export async function initializeLocalStorage() {
     }
 
     const BASE_PATH = window.location.hostname.includes("github.io")
-      ? "/codigo"
+      ? "https://icei-puc-minas-pbe-ads-si.github.io/pbe-si-ads-2024-2-tiaw-t1-pbe-si-ads-2024-2-tiaw-t1-flash-cards/codigo/"
       : "";
     const response = await fetch(`${BASE_PATH}/db/db.json`);
 
