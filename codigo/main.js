@@ -8,7 +8,7 @@ export async function initializeLocalStorage() {
       return;
     }
 
-    const response = await fetch("/codigo/db/db.json");
+    const response = await fetch("codigo/db/db.json");
     if (!response.ok) {
       throw new Error(`Erro ao carregar db.json: ${response.statusText}`);
     }
