@@ -1,5 +1,3 @@
-
-
 export async function initializeLocalStorage() {
   try {
     const storedData = localStorage.getItem("appData");
@@ -8,7 +6,11 @@ export async function initializeLocalStorage() {
       return;
     }
 
-    const response = await fetch("codigo/db/db.json");
+    const BASE_PATH = window.location.hostname.includes("github.io")
+      ? "/codigo"
+      : "";
+    const response = await fetch(`${BASE_PATH}/db/db.json`);
+
     if (!response.ok) {
       throw new Error(`Erro ao carregar db.json: ${response.statusText}`);
     }
