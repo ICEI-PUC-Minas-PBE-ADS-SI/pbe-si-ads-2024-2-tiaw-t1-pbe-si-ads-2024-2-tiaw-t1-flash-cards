@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -23,40 +25,73 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#" id="userDropdown"
-                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../../assets/images/profilepicture.jpg" alt="Imagem de Perfil" class="profile-picture"
-                                     id="profilePicture">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#"
+                                id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../../assets/images/profilepicture.jpg" alt="Imagem de Perfil"
+                                    class="profile-picture" id="profilePicture">
                                 <span class="ms-2">Sua Conta</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                                <li><a class="dropdown-item" href="#">Configurações</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Sair</a></li>
+                                <li><a class="dropdown-item" href="../perfil/perfil.html">Configurações da Conta</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="../../index.html">Sair</a></li>
                             </ul>
                         </li>
-                         <!-- botão pro -->
+
                         <li class="nav-item">
-                            <a href="../pro/pro.html" class="btn btn-warning ms-3 text-light">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                </svg>
-                                Torne-se Pro!
-                            </a>
+                            <button class="btn btn-warning ms-3 text-light">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-star-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg> Torne-se Pro!
+                            </button>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+
+        <!--sidebar-->
+        <div class="sidebar" id="sidebar" style="background-color: white;">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 style="font-size: 1.75rem; font-weight: bold; margin: 0;">Menu</h5>
+                <span class="sidebar-close" id="sidebarClose">&times;</span>
+            </div>
+            <ul class="mt-3" style="list-style-type: none; padding: 0; line-height: 1.6;">
+                <li style="padding: 10px 0;border-bottom: 1px solid lightgray;">
+                    <a href="criar-flashcard.html"
+                        style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">Criar
+                        Flashcard</a>
+                </li>
+                <li style="padding: 10px 0;border-bottom: 1px solid lightgray;">
+                    <a href="deck-baralho.html"
+                        style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">
+                        Biblioteca de Decks</a>
+                </li>
+
+                <li style="padding: 10px 0; border-bottom: 1px solid lightgray; ">
+                    <a href="../pro/pro.html"
+                        style="color: rgb(240, 236, 43); text-decoration: none; font-size: 1.3rem;">Pro</a>
+                </li>
+                <li style="padding: 10px 0; border-bottom: 1px solid lightgray;">
+                    <a href="../estatisticas/estatisticas.html"
+                        style="color: rgb(84, 165, 241); text-decoration: none; font-size: 1.3rem;">Estatísticas</a>
+                </li>
+            </ul>
+        </div>
     </header>
 
     <main class="container mt-4">
         <div class="d-flex align-items-center mb-4 title-container">
-            <a href="index.html#sidebar" class="text-decoration-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left">
+            <a href="../../index.html" class="text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-left">
                     <path fill-rule="evenodd"
-                          d="M12.14 1.293a1 1 0 0 1 0 1.414L5.414 8l6.726 5.293a1 1 0 0 1-1.268 1.578l-7.5-6a1 1 0 0 1 0-1.578l7.5-6a1 1 0 0 1 1.268 0z"/>
+                        d="M12.14 1.293a1 1 0 0 1 0 1.414L5.414 8l6.726 5.293a1 1 0 0 1-1.268 1.578l-7.5-6a1 1 0 0 1 0-1.578l7.5-6a1 1 0 0 1 1.268 0z" />
                 </svg>
             </a>
             <h2 class="ms-2">Estatísticas de Desempenho</h2>
@@ -131,7 +166,8 @@
 
         <section class="improvement-container">
             <h2>Sugestões de Estudo</h2>
-            <p>Com base nos dados anteriores, veja como você pode melhorar suas taxas de acertos nas categorias abaixo:</p>
+            <p>Com base nos dados anteriores, veja como você pode melhorar suas taxas de acertos nas categorias abaixo:
+            </p>
             <table class="improvement-table">
                 <thead>
                     <tr>
@@ -160,35 +196,36 @@
             </table>
         </section>
     </main>
-    
+
     <footer>
         <p>© 2024 Lethe - Todos os direitos reservados.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    // Gráfico de Desempenho
-    const ctx = document.getElementById('performanceChart').getContext('2d');
-    const performanceChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Matemática', 'História', 'Ciências'],
-            datasets: [{
-                label: 'Taxa de Acertos (%)',
-                data: [90, 80, 70],
-                backgroundColor: ['#4a90e2', '#f1c40f', '#e74c3c'],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 100
+    <script>
+        // Gráfico de Desempenho
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        const performanceChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Matemática', 'História', 'Ciências'],
+                datasets: [{
+                    label: 'Taxa de Acertos (%)',
+                    data: [90, 80, 70],
+                    backgroundColor: ['#4a90e2', '#f1c40f', '#e74c3c'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
                 }
             }
-        }
-    });
-</script>
+        });
+    </script>
 </body>
+
 </html>
