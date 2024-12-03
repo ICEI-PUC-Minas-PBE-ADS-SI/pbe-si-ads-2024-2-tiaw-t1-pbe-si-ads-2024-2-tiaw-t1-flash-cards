@@ -13,7 +13,7 @@
     <div class="container">
       <h1>Login</h1>
       <form id="loginForm">
-        <label for="usuario">Usuário:</label>
+        <label for="usuario">Email:</label>
         <input
           type="text"
           id="usuario"
@@ -35,9 +35,14 @@
         <a href="./esqueceu-a-senha.html"
           ><label for="esqueceu">Esqueceu a senha</label></a
         ><br />
-        <a href="./cadastro.html"><label for="">Cadastre-se já</label></a>
+        <a href="./cadastro.html" style="cursor: pointer;"><label for="sign in">Cadastre-se já</label></a>
       </form>
     </div>
+
+    <script type="module">
+      import { initializeLocalStorage } from "../../../main.js";
+      initializeLocalStorage();
+    </script>
 
     <script>
       document
@@ -47,39 +52,32 @@
 
           const usuario = document.getElementById("usuario").value;
           const senha = document.getElementById("senha").value;
-          const jsonUrl = "/codigo/db/db.json"; //TODO ATUALIZAR para identificar tanto o JSON quanto local storage
 
-        //   const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-        // const usuarioEncontrado = usuarios.find(u => u.usuario === usuario && u.senha === senhaHashed);
+          const appData = JSON.parse(localStorage.getItem("appData"));
+          console.log(appData);
 
-          try {
-            const response = await fetch(jsonUrl);
-            console.log(response);
-            if (!response.ok) {
-              alert("Erro ao carregar os dados. Tente novamente mais tarde.");
-              return;
-            }
+          if (!appData || !appData.users) {
+            alert("Erro ao acessar os dados de login.");
+            return;
+          }
 
-            const data = await response.json();
-            const usuarioEncontrado = data.users.find(
-              (u) => u.email === usuario && u.password === senha
-            );
+          const usuarioEncontrado = appData.users.find(
+            (u) => u.email === usuario && u.password === senha
+          );
 
+          console.log(usuarioEncontrado);
 
+          if (usuarioEncontrado) {
             console.log(usuarioEncontrado);
-            
 
-            if (usuarioEncontrado) {
-              alert(
-                "Login bem-sucedido! Bem-vindo(a) " +
-                  usuarioEncontrado.nome +
-                  "!"
-              );
-              window.location.href = "home.html";
-            } else {
-              alert("Usuário ou senha incorretos!");
-            }
-          } catch (error) {}
+            alert(
+              `Login bem-sucedido! Bem-vindo(a), ${usuarioEncontrado.name}!`
+            );
+            localStorage.setItem("loggedUserId", usuarioEncontrado.id);
+            window.location.href = "/codigo/public/index.html";
+          } else {
+            alert("Usuário ou senha incorretos!");
+          }
         });
     </script>
   </body>

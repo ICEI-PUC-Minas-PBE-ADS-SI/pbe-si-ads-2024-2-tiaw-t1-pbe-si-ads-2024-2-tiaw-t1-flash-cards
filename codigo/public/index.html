@@ -53,11 +53,11 @@
                     >Perfil</a
                   >
                 </li>
-                <li><a class="dropdown-item" href="#">Configurações</a></li>
+                <li><a class="dropdown-item" href="index.html">Configurações</a></li>
                 <li>
                   <hr class="dropdown-divider" />
                 </li>
-                <li><a class="dropdown-item" href="./modulos/login/login.html">Sair</a></li>
+                <li><a class="dropdown-item" href="#"  id="logoutButton">Sair</a></li>
               </ul>
             </li>
 
@@ -267,7 +267,12 @@
       </div>
     </footer>
 
-    <script>
+    <script type="module">
+    import { authLogin } from "/codigo/main.js";
+    import { initializeLocalStorage } from "/codigo/main.js";
+
+      authLogin();
+
       const sidebar = document.getElementById("sidebar");
       const sidebarToggle = document.getElementById("sidebarToggle");
       const sidebarClose = document.getElementById("sidebarClose");
@@ -282,34 +287,33 @@
         sidebar.classList.remove("active");
       });
 
-      const currentUserId = 1; //TODO ALTERAR PARA LOCALSTORAGE NO FUTURO
-
-      const jsonUrl = "../db/db.json"; // path de acordo com o live-server
+      const loggedUserId = localStorage.getItem("loggedUserId");
 
       async function fetchDecks() {
         try {
-          const response = await fetch(jsonUrl);   
-          console.log(response);
-                 
-          if (!response.ok) {
-            throw new Error("Erro ao carregar o arquivo JSON");
-          }
+      const storedData = localStorage.getItem("appData");
+      if (!storedData) {
+        console.error("Dados não encontrados no localStorage.");
+        return;
+      }
 
-          const data = await response.json();
+      const appData = JSON.parse(storedData);
+      console.log(appData);
+      
 
-          const currentUser = data.users.find((user) => user.id === currentUserId);
+      const currentUser = appData.users.find((user) => user.id === Number(loggedUserId));
 
           if (!currentUser) {
             console.error("Usuário não encontrado");
             return;
           }
-          const userDecksIds = data.users.find(
-            (user) => user.id === currentUserId
-          ).decks;
+          
+      const userDecks = appData.decks.filter((deck) =>
+        currentUser.decks.includes(deck.id)
+      );
 
-          const userDecks = data.decks.filter((deck) =>
-            userDecksIds.includes(deck.id)
-          );
+      console.log(userDecks);
+      
 
           renderDecks(userDecks);
         } catch (error) {
@@ -317,8 +321,15 @@
         }
       }
 
+      function logout() {        
+        localStorage.removeItem("loggedUserId");
+        console.log("Usuário deslogado");
+        window.location.href = "./modulos/login/login.html";
+      }
+
       function renderDecks(decks) {       
-        const deckListContainer = document.getElementById("deck-list");        
+        const deckListContainer = document.getElementById("deck-list");    
+        deckListContainer.innerHTML = "";     
         if (decks.length === 0) {
           const message = document.createElement('p');
           message.textContent = "Você ainda não possui decks!";
@@ -363,7 +374,12 @@
         });
       }
 
-      fetchDecks();
-    </script>
+      document.getElementById("logoutButton").addEventListener("click", logout);
+
+
+      initializeLocalStorage().then(() => {
+        fetchDecks();
+      });    
+  </script>
   </body>
 </html>
