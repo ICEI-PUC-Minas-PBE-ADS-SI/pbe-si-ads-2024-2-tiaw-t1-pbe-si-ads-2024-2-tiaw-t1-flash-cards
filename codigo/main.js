@@ -40,7 +40,9 @@ export function authLogin() {
     console.warn(
       "Nenhum usuário está logado. Redirecionando para a página de login."
     );
-    window.location.href = "modulos/login/login.html";
+    window.location.href = window.location.hostname.includes("github.io")
+    ? "https://icei-puc-minas-pbe-ads-si.github.io/pbe-si-ads-2024-2-tiaw-t1-pbe-si-ads-2024-2-tiaw-t1-flash-cards/codigo/"
+    : "modulos/login/login.html";
   } else {
     console.log("Usuário logado:", loggedUserId);
   }

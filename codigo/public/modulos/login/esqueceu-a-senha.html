@@ -63,7 +63,9 @@
                 localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
                 alert("Senha redefinida com sucesso!");
-                window.location.href = "login.html"; // Redireciona para a tela de login
+                window.location.href = window.location.hostname.includes("github.io")
+    ? "https://icei-puc-minas-pbe-ads-si.github.io/pbe-si-ads-2024-2-tiaw-t1-pbe-si-ads-2024-2-tiaw-t1-flash-cards/codigo/"
+    : "login.html"; // Redireciona para a tela de login
             } else {
                 alert("Por favor, insira uma nova senha.");
             }

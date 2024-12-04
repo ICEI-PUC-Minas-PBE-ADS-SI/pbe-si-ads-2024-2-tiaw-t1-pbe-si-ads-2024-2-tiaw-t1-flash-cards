@@ -59,5 +59,8 @@ function saveProfile() {
     localStorage.setItem("profileBio", bio);
 
     alert("Perfil atualizado com sucesso!");
-    window.location.href = "perfil.html"; // Redireciona de volta à página de perfil
+    window.location.href = 
+    window.location.hostname.includes("github.io")
+    ? "https://icei-puc-minas-pbe-ads-si.github.io/pbe-si-ads-2024-2-tiaw-t1-pbe-si-ads-2024-2-tiaw-t1-flash-cards/codigo/"
+    : "perfil.html"; // Redireciona de volta à página de perfil
 }
