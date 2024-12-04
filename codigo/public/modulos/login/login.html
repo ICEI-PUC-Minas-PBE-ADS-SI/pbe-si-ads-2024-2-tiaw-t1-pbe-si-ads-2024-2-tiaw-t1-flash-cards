@@ -76,7 +76,11 @@
               `Login bem-sucedido! Bem-vindo(a), ${usuarioEncontrado.name}!`
             );
             localStorage.setItem("loggedUserId", usuarioEncontrado.id);
-            window.location.href = "/codigo/public/index.html";
+            window.location.href = window.location.hostname.includes(
+              "github.io"
+            )
+              ? "https://icei-puc-minas-pbe-ads-si.github.io/pbe-si-ads-2024-2-tiaw-t1-pbe-si-ads-2024-2-tiaw-t1-flash-cards/codigo/"
+              : "/codigo/public/index.html";
           } else {
             alert("Usuário ou senha incorretos!");
           }
